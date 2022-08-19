@@ -1,11 +1,9 @@
-import React from 'react';
-import Logo from '../Logo.png'
 import '../styles/Footer.css';
 
 export default function Footer() {
   return (
     <footer className='Footer-container'>
-        <img className='Footer-logo' src={Logo} alt='logo'></img>
+        <img className='Footer-logo' src='' alt='logo'></img>
         <h3 className='Footer-title'>MyTinerary | 2022</h3>
         <div className='Footer-links'>
             <a className='Footer-links-item' href='#'>Home</a>
