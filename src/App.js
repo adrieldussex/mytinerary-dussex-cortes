@@ -8,7 +8,7 @@ function App() {
     <>
       < Hero />
       < Footer />
-      < EventCarousel />
+      {/* < EventCarousel /> */}
     </>
   );
 }
