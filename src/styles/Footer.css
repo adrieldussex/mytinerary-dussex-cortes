@@ -1,0 +1,41 @@
+.Footer-container {
+    background-color: #061116;
+    color: white;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Footer-logo {
+    height: 20vmin;
+}
+
+.Footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.Footer-links-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 425px) {
+    .Footer-container {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .Footer-logo {
+        height: 30vmin;
+    }
+
+    .Footer-links {
+        display: flex;
+        gap: 20px;
+    }
+}
