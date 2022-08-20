@@ -35,7 +35,6 @@
 
    .Hero-top a:hover {
     outline: none;
-    border: 1px solid white;
     border-color: rgba(0, 211, 234, 0.5);
     box-shadow: 0 0 0 4px rgb(0 211 234 / 10%);
    }
