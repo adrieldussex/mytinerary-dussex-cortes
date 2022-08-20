@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className='Footer-container'>
         <img className='Footer-logo' src={Logo} alt='logo'></img>
-        <h3 className='Footer-title'>Cohort 32 | 2022</h3>
+        <h3 className='Footer-title'>2022</h3>
         <div className='Footer-links'>
             <a className='Footer-links-item' href='#'>Home</a>
             <a className='Footer-links-item' href='#'>Cities</a>
