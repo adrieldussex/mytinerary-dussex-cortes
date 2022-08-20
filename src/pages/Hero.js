@@ -1,4 +1,5 @@
 import '../styles/Hero.css'
+import CallToAction from '../components/CallToAction'
 
 export default function Hero() {
   return (
@@ -9,7 +10,7 @@ export default function Hero() {
                     <h1 className='Hero-title'>MyTinerary</h1>
                     <h2 className='Hero-slogan'>Find your perfect trip, designed by insiders who know and love their cities!</h2>
                 </div>
-                <button className='Hero-calltoaction'>Find your next destination</button>
+                <CallToAction />
             </div>
             <div className='Hero-bottom'>                
                 <img src="https://i.imgur.com/OZpDvUU.png" alt="logo-hero"></img>
