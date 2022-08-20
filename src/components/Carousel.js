@@ -14,9 +14,9 @@ export default function Carousel(props) {
     )
     
   return (
-    <div>
+    <div className='Carousel'>
+        <h1>Popular MyTineraries</h1>
         <div className='Carousel-slide'>
-            <h1>Popular MYtineraries</h1>
             { items.slice(start, end).map(itemView) }
         </div>
     </div>
