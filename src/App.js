@@ -1,14 +1,13 @@
 import './App.css';
-import EventCarousel from './components/EventCarousel';
+import CitiesCarousel from './components/CitiesCarousel';
 import Footer from './components/Footer';
-import Hero from './pages/Hero';
 
 function App() {
   return (
     <>
-      < Hero />
+      {/* < Hero /> */}
+      < CitiesCarousel />
       < Footer />
-      {/* < EventCarousel /> */}
     </>
   );
 }
