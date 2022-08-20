@@ -1,0 +1,16 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+img {
+    border-radius: 10px;
+    width: 280px;
+}
+
+p {
+    font-weight: 600;
+    padding-bottom: 10px;
+}
