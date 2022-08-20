@@ -1,7 +1,12 @@
+.Carousel {
+    background: rgba(55, 55, 55, 0.1);
+}
+
 .Carousel-slide {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 h1 {
