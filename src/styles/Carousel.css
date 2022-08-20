@@ -1,0 +1,15 @@
+.Carousel {
+    background: rgba(55, 55, 55, 0.1);
+}
+
+.Carousel-slide {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h1 {
+    padding-bottom: 10px;
+    text-align: center;
+}
