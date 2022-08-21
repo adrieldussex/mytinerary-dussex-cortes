@@ -1,15 +1,29 @@
 .Carousel {
-    background: rgba(55, 55, 55, 0.1);
+    /* background: rgba(55, 55, 55, 0.1); */
+    background-color: #061116;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 10px;
+    gap: 20px;
+    min-height: 30vh;
 }
 
 .Carousel-slide {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 25px;
 }
 
-h1 {
-    padding-bottom: 10px;
+.Carousel h1 {
+    color: white;
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    .Carousel h1 {
+        font-size: 2.5rem;
+    }
 }
