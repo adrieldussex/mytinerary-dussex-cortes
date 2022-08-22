@@ -45,7 +45,7 @@ export default function Carousel(props) {
     <div className='Carousel'>
         <h1>Popular MyTineraries</h1>
         <div className='Carousel-container'>
-            <Arrow icon={"<"} click={backward} className=''/>            
+            <Arrow icon={"<"} click={backward}/>            
             <div className='Carousel-slide'>
                 { items.slice(start, end).map(itemView) }
             </div>
