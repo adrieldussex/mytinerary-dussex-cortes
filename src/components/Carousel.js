@@ -1,4 +1,5 @@
 import '../styles/Carousel.css'
+import '../styles/CarouselArrow.css'
 import Arrow from './Arrow'
 import {useEffect, useState} from 'react'
 
@@ -19,7 +20,7 @@ export default function Carousel(props) {
     useEffect( () => {
         let id = setInterval(function () {
             forward()
-        }, 5000)
+        }, 8000)
 
         setIntervalId(id)
 
@@ -43,9 +44,11 @@ export default function Carousel(props) {
   return (
     <div className='Carousel'>
         <h1>Popular MyTineraries</h1>
-        <div className='Carousel-slide'>
-            <Arrow icon={"<"} click={backward} />
-            { items.slice(start, end).map(itemView) }
+        <div className='Carousel-container'>
+            <Arrow icon={"<"} click={backward} className=''/>            
+            <div className='Carousel-slide'>
+                { items.slice(start, end).map(itemView) }
+            </div>
             <Arrow icon={">"} click={forward}/>
         </div>
     </div>
