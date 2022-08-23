@@ -1,15 +1,21 @@
 import './App.css';
 import Hero from './pages/Hero';
-import Footer from './components/Footer';
-import CitiesCarousel from './components/CitiesCarousel'
+import Cities from './pages/Cities';
+import WebsiteLayout from './layouts/WebsiteLayout';
+import UnderConstruction from './pages/UnderConstruction'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      < Hero />
-      < CitiesCarousel />
-      < Footer />
-    </div>
+    <BrowserRouter>
+      <WebsiteLayout>
+        <Routes>
+          <Route path='/' element={<Hero />}/>
+          <Route path='/cities' element={<Cities />}/>
+          <Route path='/*' element={<UnderConstruction />}/>
+        </Routes>
+      </WebsiteLayout>
+    </BrowserRouter>
   );
 }
 

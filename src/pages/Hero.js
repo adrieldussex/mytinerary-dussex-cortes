@@ -3,19 +3,17 @@ import CallToAction from '../components/CallToAction'
 
 export default function Hero() {
   return (
-    <>
-        <div className="Hero-container">
-            <div className='Hero-top'>
-                <div className='Hero-text'>                    
-                    <h1 className='Hero-title'>MyTinerary</h1>
-                    <h2 className='Hero-slogan'>Find your perfect trip, designed by insiders who know and love their cities!</h2>
-                </div>
-                <CallToAction />
+    <div className="Hero-container">
+        <div className='Hero-top'>
+            <div className='Hero-text'>                    
+                <h1 className='Hero-title'>MyTinerary</h1>
+                <h2 className='Hero-slogan'>Find your perfect trip, designed by insiders who know and love their cities!</h2>
             </div>
-            <div className='Hero-bottom'>                
-                <img src="https://i.imgur.com/OZpDvUU.png" alt="logo-hero"></img>
-            </div>
+            <CallToAction linkTo='cities'/>
         </div>
-    </>
+        <div className='Hero-bottom'>                
+            <img src="https://i.imgur.com/OZpDvUU.png" alt="logo-hero"></img>
+        </div>
+    </div>
   )
 }
