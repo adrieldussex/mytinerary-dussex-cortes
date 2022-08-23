@@ -1,15 +1,16 @@
 import './App.css';
 import Hero from './pages/Hero';
-import Footer from './components/Footer';
-import CitiesCarousel from './components/CitiesCarousel'
+import Cities from './pages/Cities';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      < Hero />
-      < CitiesCarousel />
-      < Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Hero />}/>
+        <Route path='/cities' element={<Cities />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
