@@ -4,10 +4,12 @@ import Cities from './pages/Cities';
 import WebsiteLayout from './layouts/WebsiteLayout';
 import UnderConstruction from './pages/UnderConstruction'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <WebsiteLayout>
         <Routes>
           <Route path='/' element={<Hero />}/>
