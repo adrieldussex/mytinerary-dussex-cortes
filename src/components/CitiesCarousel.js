@@ -18,6 +18,6 @@ export default function CitiesCarousel() {
     ]
 
   return (
-    <Carousel data={items} range={4} />
+    <Carousel data={items} range={4} slides={3} interval={4} />
   )
 }
