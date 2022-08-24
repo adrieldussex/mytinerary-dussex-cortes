@@ -1,0 +1,33 @@
+.Nav-desktop, .Nav-mobile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.Nav-mobile {
+    display: none;
+}
+
+
+@media (max-width: 767px) {
+    .Nav-desktop {
+        display: none;
+    }
+
+    .Nav-mobile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        z-index: 10;    
+    }
+
+    .Nav-mobile-hamburguer {
+        position: absolute;
+        right: 5%;
+        cursor: pointer;
+    }
+    
+}
