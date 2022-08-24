@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import '../styles/Header.css';
+import { useState } from 'react';
 import {Link as LinkRouter} from 'react-router-dom'
-import Logo from '../img/Logo-nav.png';
-
 
 export default function Header() {
     const pages = [
@@ -11,7 +9,7 @@ export default function Header() {
         {name: 'NewCity', to: '/newcity'},
     ]
 
-    const link = (page) => <LinkRouter to={page.to} className='Header-link'>{page.name}</LinkRouter>
+    const link = (page) => <LinkRouter to={page.to} className='Header-link' key={page.name}>{page.name}</LinkRouter>
 
     const [open, setOpen] = useState(false)
 
@@ -25,7 +23,9 @@ export default function Header() {
 
     return (
         <div className='Header-container'>
-            <LinkRouter to='/'><img src={Logo} alt="logo-header"></img></LinkRouter>
+            <LinkRouter to='/'>
+                <img className='Header-logo' src='http://localhost:3000/img/Logo-nav.png' alt="logo-header"></img>
+            </LinkRouter>
             <div className='Header-right'>                
                 <img className='Header-avatar' src="https://i.imgur.com/CNe5NKD.png" alt="user-avatar"></img>
                 <div className='Header-menu'>
