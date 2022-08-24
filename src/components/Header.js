@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import '../styles/Header.css';
 import {Link as LinkRouter} from 'react-router-dom'
 import Logo from '../img/Logo-nav.png';
@@ -12,12 +13,30 @@ export default function Header() {
 
     const link = (page) => <LinkRouter to={page.to} className='Header-link'>{page.name}</LinkRouter>
 
-  return (
-    <div className='Header-container'>
-        <LinkRouter to='/'><img src={Logo} alt="logo-header"></img></LinkRouter>
-        <nav>
-            {pages.map(link)}
-        </nav>
-    </div>
-  )
+    const [open, setOpen] = useState(false)
+
+    const handleOpenMenu = () => {
+        if(open) {
+            setOpen(false)
+        } else {
+            setOpen(true)
+        }
+    }
+
+    return (
+        <div className='Header-container'>
+            <LinkRouter to='/'><img src={Logo} alt="logo-header"></img></LinkRouter>
+            <div className='Header-right'>                
+                <img className='Header-avatar' src="https://i.imgur.com/CNe5NKD.png" alt="user-avatar"></img>
+                <div className='Header-menu'>
+                    <button onClick={handleOpenMenu}>Menu</button>
+                        {
+                            open
+                                ? <nav>{pages.map(link)}</nav>
+                                : null
+                        }
+                </div>
+            </div>
+        </div>
+    )
 }
