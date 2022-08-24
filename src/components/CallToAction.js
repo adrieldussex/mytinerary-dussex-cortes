@@ -6,7 +6,7 @@ export default function CallToAction(props) {
   return (
     <>    
       <LinkRouter className="CallToAction-button" to={linkTo}>
-        <img height="24" width="24" src="https://i.imgur.com/OZpDvUU.png" alt="logo"></img>
+        <img height="24" width="24" src="http://localhost:3000/img/Logo.png" alt="logo"></img>
         <span>Find your next destination</span>
       </LinkRouter>
     </>
