@@ -1,13 +1,14 @@
 .Footer-container {
     background-color: #061116;
     color: white;
-    height: 20vh;
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
 .Footer-logo {
+    padding-top: 5px;
     width: 200px;
 }
 
