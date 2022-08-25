@@ -1,6 +1,5 @@
 .Hero-container {
     background-image: url("https://i.imgur.com/dT5RYmU.jpg");
-    /* background-image: url("https://i.imgur.com/cLYKuyH.jpg"); */
     background-position: center 20%;
     position: relative;
     height: 90vh;
@@ -10,6 +9,7 @@
     align-items: center;
     padding: 10%;
 }
+
 .Hero-container::before {
     content: '';
     position: absolute;
@@ -24,6 +24,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 30px;
     }
         .Hero-text {
@@ -32,13 +33,11 @@
         }
             .Hero-title {
                 color: white;
-                text-align: left;
                 font-size: 3rem;
             }
 
             .Hero-slogan {
                 color: #00D3EA;
-                text-align: left;
                 font-size: 1.3rem;
                 max-width: 400px;
             }
@@ -62,7 +61,7 @@
 
 .Hero-bottom img {
     position: relative;
-    height: 300px;
+    height: 160px;
 }
 
 @media (min-width: 768px) {
