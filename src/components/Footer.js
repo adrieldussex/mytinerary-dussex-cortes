@@ -19,16 +19,20 @@ export default function Footer() {
 
   return (
     <footer className='Footer-container'>
-      <LinkRouter to='/'>
-        <img className='Footer-logo' src='http://localhost:3000/img/Logo-nav.png' alt='logo'></img>
-      </LinkRouter>
-        <h3 className='Footer-title'>2022</h3>
-        <div className='Footer-links'>
-            <nav>{pages.map(link)}</nav>
-            <button className='Chevron' onClick={scrollUp}>
-              <img src='http://localhost:3000/img/chevron-up.svg' alt='chevron'></img>
-            </button>
-        </div>
+      <div className='Footer-top'>        
+        <LinkRouter to='/'>
+          <img className='Footer-logo' src='http://localhost:3000/img/Logo-nav.png' alt='logo'></img>
+        </LinkRouter>
+          <div className='Footer-links'>
+              <nav>{pages.map(link)}</nav>
+              <button className='Chevron' onClick={scrollUp}>
+                <img src='http://localhost:3000/img/chevron-up.svg' alt='chevron'></img>
+              </button>
+          </div>
+      </div>
+      <div className='Footer-copy'>
+        <p>© 2022 Copyright - All rights reserved | Designed by Adriel Dussex and Lucas Cortes</p>
+      </div>
     </footer>    
   )
 }
