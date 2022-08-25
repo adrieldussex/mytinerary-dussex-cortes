@@ -5,18 +5,12 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    /* padding: 10px; */
 }
-    /* .Header-container nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding: 10px;
-    } */
 
 .Header-right {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     gap: 20px;
 }
     .Header-right button {
@@ -37,7 +31,6 @@
     align-items: center;
 }
 
-
 .Header-link {
     color: rgb(73, 118, 139);
     font-weight: 500;
@@ -48,19 +41,18 @@
     }
 
 .Header-logo {
+    padding-top: 5px;
     width: 200px;
 }
 
 .Header-avatar {
-    height: 50px;
     cursor: pointer;
+    height: 40px;
+    padding: 2px 0;
 }
 
 @media (min-width: 768px) {
     .Header-container nav {
         flex-direction: row;
-        padding: 0px;
-        padding-top: 10px;
     }
 }
-
