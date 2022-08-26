@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Hero from './pages/Hero';
+import Cities from './pages/Cities';
+import NewCity from './pages/NewCity';
+import WebsiteLayout from './layouts/WebsiteLayout';
+import UnderConstruction from './pages/UnderConstruction'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ScrollToTop />
+      <WebsiteLayout>
+        <Routes>
+          <Route path='/' element={<Hero />}/>
+          <Route path='/cities' element={<Cities />}/>
+          <Route path='/newcity' element={<NewCity />}/>
+          <Route path='/*' element={<UnderConstruction />}/>
+        </Routes>
+      </WebsiteLayout>
+    </BrowserRouter>
   );
 }
 

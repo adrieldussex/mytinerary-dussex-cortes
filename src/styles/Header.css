@@ -1,0 +1,58 @@
+.Header-container {
+    min-height: 10vh;
+    background-color: #061116;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Header-right {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+    .Header-right button {
+        background-color: #00D3EA;
+        border: none;
+        width: 100px;
+        height: 40px;
+        border-radius: 1rem;
+        color: #061116;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+.Header-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header-link {
+    color: rgb(73, 118, 139);
+    font-weight: 500;
+    text-decoration: none;
+}
+    .Header-link:hover {
+        color: #00D3EA;
+    }
+
+.Header-logo {
+    padding-top: 5px;
+    width: 200px;
+}
+
+.Header-avatar {
+    cursor: pointer;
+    height: 40px;
+    padding: 2px 0;
+}
+
+@media (min-width: 768px) {
+    .Header-container nav {
+        flex-direction: row;
+    }
+}
