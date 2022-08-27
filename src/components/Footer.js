@@ -8,6 +8,8 @@ export default function Footer() {
     {name: 'NewCity', to: '/newcity'},
   ]
 
+  const year = new Date();
+
   const link = (page) => <LinkRouter to={page.to} className='Footer-links-item' key={page.name}>{page.name}</LinkRouter>
 
   const scrollUp = () => {
@@ -31,7 +33,7 @@ export default function Footer() {
           </div>
       </div>
       <div className='Footer-copy'>
-        <p>© 2022 Copyright - All rights reserved | Designed by Adriel Dussex and Lucas Cortes</p>
+        <p>© {year.getFullYear()} Copyright - All rights reserved | Designed by Adriel Dussex and Lucas Cortes</p>
       </div>
     </footer>    
   )
