@@ -1,16 +1,21 @@
 import '../styles/CityCard.css'
 
-export default function CityCard() {
-  return (
+
+export default function CityCard(props) {
+      const country = props.country
+      const city = props.city
+      const url = props.url
+
+    return (
         <div className='CityCard-container'>
-            <img src='https://www.planetware.com/wpimages/2020/03/world-most-visited-cities-hong-kong.jpg' alt=''/>
+            <img src={url} alt=''/>
             <div className='CityCard-info'>
-                <p>City</p>
-                <p>Country</p>
+                <p>{city}</p>
+                <p>{country}</p>
             </div>
             <div className='CityCard-details'>
                 <a href="#">See more</a>
             </div>
         </div>
-  )
+    )
 }
