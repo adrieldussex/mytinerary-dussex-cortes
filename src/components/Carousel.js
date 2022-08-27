@@ -26,7 +26,7 @@ export default function Carousel(props) {
 
         setIntervalId(id)
 
-        return () => clearInterval(intervalId)
+        return () => clearInterval(id)
     }, [start])
 
     function backward() {
