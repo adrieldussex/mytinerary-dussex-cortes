@@ -4,17 +4,17 @@ import {Link as LinkRouter} from 'react-router-dom'
 export default function CityCard(props) {
     const country = props.country
     const city = props.city
-    const image = props.url 
+    const photo = props.photo
 
     return (
-        <div className='CityCard-container'>
-            <img src={image} alt={city}/>
+        <div className='CityCard-container' key={city}>
+            <img src={photo} alt={city}/>
             <div className='CityCard-info'>
                 <p>{city}</p>
                 <p>{country}</p>
             </div>
             <div className='CityCard-details'>
-                <LinkRouter to='/*'>See more</LinkRouter>
+                <LinkRouter to='/details'>See more</LinkRouter>
             </div>
         </div>
     )
