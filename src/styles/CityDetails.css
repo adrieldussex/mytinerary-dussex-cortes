@@ -1,0 +1,24 @@
+.CityDetails-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #061116;
+}
+
+.CityDetails-img {
+    width: 290px;
+    height: 290px;
+    background-color: red;
+}
+.CityDetails-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.CityDetails-info {
+    background-color: green;
+    width: 290px;
+    height: 290px;
+}
