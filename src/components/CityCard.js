@@ -8,7 +8,7 @@ export default function CityCard(props) {
 
     return (
         <div className='CityCard-container'>
-            <img src={image} alt=''/>
+            <img src={image} alt={city}/>
             <div className='CityCard-info'>
                 <p>{city}</p>
                 <p>{country}</p>
