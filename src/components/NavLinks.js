@@ -5,6 +5,7 @@ export default function NavLinks() {
         {name: 'Home', to: '/'},
         {name: 'Cities', to: '/cities'},
         {name: 'NewCity', to: '/newcity'},
+        {name: 'EditCity', to: '/editcity'}
     ]
 
     const link = (page) => <LinkRouter to={page.to} className='Header-link' key={page.name}>{page.name}</LinkRouter>

@@ -2,6 +2,7 @@ import '../styles/Carousel.css'
 import '../styles/CarouselArrow.css'
 import Arrow from './Arrow'
 import {useEffect, useState} from 'react'
+import {Link as LinkRouter} from 'react-router-dom'
 
 export default function Carousel(props) {
     const range = props.range
@@ -13,9 +14,15 @@ export default function Carousel(props) {
     const interval = props.interval * 1000
 
     const itemView = (item) => (
-        <div className='item' key={item.title}>
-            <img src={item.url} alt={item.title}/>
-            <p>{item.title}</p>
+        <div className='CityCard-container' key={item.city}>
+            <img src={item.photo} alt={item.city}/>
+            <div className='CityCard-info'>
+                <p>{item.city}</p>
+                <p>{item.country}</p>
+            </div>
+            <div className='CityCard-details'>
+                <LinkRouter to='/details'>See more</LinkRouter>
+            </div>
         </div>
     )
 
@@ -26,7 +33,7 @@ export default function Carousel(props) {
 
         setIntervalId(id)
 
-        return () => clearInterval(intervalId)
+        return () => clearInterval(id)
     }, [start])
 
     function backward() {
