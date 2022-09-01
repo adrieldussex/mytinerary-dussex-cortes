@@ -6,6 +6,7 @@ export default function Footer() {
     {name: 'Home', to: '/'},
     {name: 'Cities', to: '/cities'},
     {name: 'NewCity', to: '/newcity'},
+    {name: 'EditCity', to: '/editcity'},
   ]
 
   const year = new Date();
