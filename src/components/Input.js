@@ -6,8 +6,8 @@ export default function Input(props) {
     let inputType = props.type
 
     return (
-    <div className='Input-wrapper'>
-        <label for={inputFor}>{inputLabel}</label>
+    <div className='Input-wrapper' key={inputLabel}>
+        <label htmlFor={inputFor}>{inputLabel}</label>
         <input className="Input-input" type={inputType} id={inputFor} name={inputFor}></input>
     </div>
   )
