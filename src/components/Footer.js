@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
       </div>
       <div className='Footer-copy'>
-        <p>© {year.getFullYear()} Copyright - All rights reserved | Designed by Adriel Dussex and Lucas Cortes</p>
+        <p>© {year.getFullYear()} All rights reserved | Designed by Adriel Dussex and Lucas Cortes</p>
       </div>
     </footer>    
   )
