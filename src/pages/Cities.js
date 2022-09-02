@@ -2,8 +2,12 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import CityCard from '../components/CityCard'
 import '../styles/Cities.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchFromServer } from '../features/citiesSlice'
 
 export default function Cities() {
+  // ---------- HARDCODEO LOS DATOS 
+
   // const cities = [
   //   { country: "Argentina", city: "Buenos Aires", url: "https://guias-viajar.com/wp-content/uploads/2021/04/Avenida-9-de-julio-Buenos-Aires-en-Argentina.jpg" },
   //   { country: "Japan", city: "Kyoto", url: "https://blog.goway.com/globetrotting/wp-content/uploads/2018/05/Kiyomizu-dera-Temple-and-cherry-blossom-season-Sakura-spring-time-in-Kyoto-Japan-_1017748333.jpg" },
@@ -20,11 +24,23 @@ export default function Cities() {
   //   { country: "India", city: "Delhi", url: "https://www.planetware.com/wpimages/2020/03/world-most-visited-cities-delhi-india.jpg" },
   //   { country: "Mexico", city: "Cancun", url: "https://www.planetware.com/wpimages/2019/08/mexico-cancun-top-attractions-cancuns-beautiful-beaches.jpg" }
   // ]
-  const [cities, setCities] = useState([])
-    useEffect(() => {
-        axios.get('http://localhost:4000/cities')
-                .then(res => setCities(res.data))
-    }, [])
+
+
+  // ---------- CONSUMIR LA API Y TRAER LOS DATOS DEL BACK 
+
+  // const [cities, setCities] = useState([])
+  //   useEffect(() => {
+  //       axios.get('http://localhost:4000/cities')
+  //               .then(res => setCities(res.data))
+  //   }, [])
+
+
+  let cities = useSelector( state => state.cities.cities )
+  let dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchFromServer())
+  }, [])
 
   return (
     <div className='Cities-container'>
