@@ -64,7 +64,7 @@ export default function Carousel(props) {
             <div className='Carousel-container'>
                 <Arrow icon={"<"} click={backward}/>            
                 <div className='Carousel-slide'>
-                    { items.slice(start, end).map(itemView) }
+                    { items?.slice(start, end).map(itemView) }
                 </div>
                 <Arrow icon={">"} click={forward}/>
             </div>
