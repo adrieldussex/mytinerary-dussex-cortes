@@ -1,5 +1,6 @@
 import '../styles/CityDetails.css'
 import ButtonBack from './ButtonBack'
+import Itinerary from './Itinerary'
 
 export default function CityDetails() {
 
@@ -18,8 +19,9 @@ return (
                 <p className='Info-population'>Population number</p>
                 <p className='Info-fundation'>Date</p>
             </div>
-            <ButtonBack linkTo='/cities' buttonText='Back to Cities'/>
             
+            <Itinerary/>
+            <ButtonBack linkTo='/cities' buttonText='Back to Cities'/>
     </div>
 )
 }
