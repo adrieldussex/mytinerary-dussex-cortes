@@ -15,6 +15,7 @@ export default function Cities() {
   return (
     <div className='Cities-container'>
       <h1>Cities</h1>
+      <input className='Cities-input' type="search" placeholder='Search'/>
       <div className='Cities-card-container'>
         {cities?.map(CityCard)}
       </div>
