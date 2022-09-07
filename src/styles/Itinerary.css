@@ -1,3 +1,12 @@
+.Itinerary-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
 .Itinerary-card {
     position: relative;
     width: 290px;
