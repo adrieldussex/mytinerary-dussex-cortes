@@ -6,13 +6,12 @@ import axios from 'axios'
 
 export default function CityDetails(props) {
     const city = props.data
-    const id = props.cityId
     let newDate = new Date(city.founded)
     let year = newDate.getFullYear()
 
     useEffect(() => {
         if (city) {
-            axios.get(`http://localhost:4000/cities/${city.city}`)
+            axios.get(`http://localhost:4000/cities/?city=${city._id}`)
             .catch(err=>{
                 console.log(err)
             })
@@ -32,7 +31,7 @@ return (
                 <h3 className='Info-city'>Country: {city.country}</h3>
                 <h3 className='Info-country'>City: {city.city}</h3>
                 <p className='Info-population'>Population number: {city.population}</p>
-                <p className='Info-fundation'>Fundation: {year}</p>
+                <p className='Info-founded'>Founded: {year}</p>
             </div>
             
             <Itinerary/>
