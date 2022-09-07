@@ -25,7 +25,7 @@ export default function Activities() {
     }
 
     return (
-        <div className='Activities-container'>
+        <div className='Activities-container' key={activities.name}>
             {activities.map(view)}
         </div>
     )
