@@ -1,5 +1,6 @@
 import '../styles/Itinerary.css'
 import Activities from './Activities'
+import Comments from './Comments'
 
 export default function Itinerary() {
   return (       
@@ -28,7 +29,8 @@ export default function Itinerary() {
                 <img className='Like' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAW9JREFUSEvVlUFWwjAQhr+h7OUIeALxBOIN5Alr5QR6FD0BurY+uIF4g3oCOALugfElaWoorQ0L9Jld8qf/P/NnZiocecmR+fkjgVSvgBugl2e4BB4ZyszuHX4HdHM8A54LPLBlN4OpdtgwETAEe0thbg4F+jX4jIQxA1l5fFcg1UzgTJVPWtzTcoRs6bPlQYQTsy3wDSZySOh5XJWMkZzvC7zqrSgT+3GbbhiFveyyc4IJ/Up8zdIEocKYa3nKs821XnQuwkUIHlxh30G+MxJrY2GRpKo2/YRTBmIe9fA11a5sWFieoVju3xPg2Bbh/YMVzqai1KK8ckWwEOhUP7JrIF+mGW0uo0UM+Zo3EXoKHwzFN2hpVOSlmPdCnEiZvFTC+7PoEJEG8t0+CI2OEYkgrxcIOrfSrkjynwXqRMx5+KBVYyNwo/l/ULbLdKevlgby5gx8JIGIHQOmFCPI4wVipmlNNzZbFNXG9Zf+v8AXmgjeGbN7Px8AAAAASUVORK5CYII="/>
             </div>   
         </div>
-        <Activities/>                       
+        <Activities/>   
+        <Comments/>                    
     </div>
   )
 }
