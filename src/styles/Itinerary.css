@@ -1,0 +1,88 @@
+.Itinerary-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.Itinerary-card {
+    position: relative;
+    width: 290px;
+    max-height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    color: black;
+    background-color: rgb(244, 244, 244);
+    padding: 5%;
+    border-radius: 3rem;
+}
+
+.Itinerary-photo {
+    height: 250px;
+    width: 250px;
+    border-radius: 360%;
+}
+
+.Itinerary-description {
+    height: 250px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.Itinerary-name {
+    display: flex;
+    flex-direction: column;
+}
+.Itinerary-name p {
+    color: rgb(0, 170, 255);
+    font-style: italic;
+    text-decoration: underline;
+}
+
+
+.Itinerary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Info-price-duration {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.Info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.Like {
+    position: absolute;
+    right: 10%;
+    bottom: 3%;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .Itinerary-card {
+        min-width: 700px;
+        max-width: 700px;
+        padding: 3%;
+    }
+    .Like {
+        bottom: 5%;
+    }
+}
+
+
