@@ -1,4 +1,4 @@
-const api_url = 'https://my-tinerary-back-duco.herokuapp.com'
-// const api_url = 'http://localhost:4000'
+const apiurl = 'https://my-tinerary-back-duco.herokuapp.com'
+// const apiurl = 'http://localhost:4000'
 
-export default api_url
+export default apiurl

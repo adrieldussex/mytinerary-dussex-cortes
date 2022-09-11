@@ -3,7 +3,7 @@ import '../styles/CityDetails.css'
 import ButtonBack from './ButtonBack'
 import Itinerary from './Itinerary'
 import axios from 'axios'
-import api_url from '../api'
+import apiurl from '../api'
 
 export default function CityDetails(props) {
     const city = props.data
@@ -12,7 +12,7 @@ export default function CityDetails(props) {
 
     useEffect(() => {
         if (city) {
-            axios.get(`${api_url}/cities/?city=${city._id}`)
+            axios.get(`${apiurl}/cities/?city=${city._id}`)
             .catch(err=>{
                 console.log(err)
             })
