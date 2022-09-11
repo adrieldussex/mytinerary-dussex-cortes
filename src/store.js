@@ -5,4 +5,5 @@ export default configureStore({
     reducer: {
         [citiesAPI.reducerPath] : citiesAPI.reducer
     },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(citiesAPI.middleware)
 })
