@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <div className='Header-container'>
             <LinkRouter to='/'>
-                <img className='Header-logo' src='http://localhost:3000/img/Logo-nav.png' alt="logo-header"></img>
+                <img className='Header-logo' src='/img/Logo-nav.png' alt="logo-header"></img>
             </LinkRouter>
             <div className='Header-right'>
                 <MobileNav />

@@ -24,12 +24,12 @@ export default function Footer() {
     <footer className='Footer-container'>
       <div className='Footer-top'>        
         <LinkRouter to='/'>
-          <img className='Footer-logo' src='http://localhost:3000/img/Logo-nav.png' alt='logo'></img>
+          <img className='Footer-logo' src='/img/Logo-nav.png' alt='logo'></img>
         </LinkRouter>
           <div className='Footer-links'>
               <nav>{pages.map(link)}</nav>
               <button className='Chevron' onClick={scrollUp}>
-                <img src='http://localhost:3000/img/chevron-up.svg' alt='chevron'></img>
+                <img src='/img/chevron-up.svg' alt='chevron'></img>
               </button>
           </div>
       </div>
