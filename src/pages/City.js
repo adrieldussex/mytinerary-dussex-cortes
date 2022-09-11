@@ -9,7 +9,7 @@ function City() {
     const [name, setName] = useState([]);
 
     useEffect(()=>{
-        axios.get(api_url + `/cities/${id}`)
+        axios.get(`${api_url}/cities/${id}`)
         .then(res => {setName(res.data.response)})
         .catch(err=>{
             console.log(err)

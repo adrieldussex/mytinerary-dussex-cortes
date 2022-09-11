@@ -12,7 +12,7 @@ export default function CityDetails(props) {
 
     useEffect(() => {
         if (city) {
-            axios.get(api_url + `/cities/?city=${city._id}`)
+            axios.get(`${api_url}/cities/?city=${city._id}`)
             .catch(err=>{
                 console.log(err)
             })
