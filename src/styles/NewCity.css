@@ -18,3 +18,27 @@
     align-items: center;
     gap: 15px;
 }
+
+.Submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0.8em 1.3em;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: 0.2s;
+    text-transform: uppercase;
+    background-color: #00D3EA;
+}
+
+.Submit-button:hover {
+    transition: 0.2s;
+    scale: 1.05;
+    color: black;
+}
