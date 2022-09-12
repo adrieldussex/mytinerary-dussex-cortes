@@ -4,18 +4,14 @@ import Input from "../components/Input";
 import { useCreateCityMutation } from "../features/citiesAPI";
 import { useRef } from "react";
 
-
-
 export default function NewCity() {
+  const [createCity] = useCreateCityMutation();
 
-  const [createCity] = useCreateCityMutation()
-
-
-  const cityPhotoRef = useRef()
-  const cityNameRef = useRef()
-  const countryNameRef = useRef()
-  const populationRef = useRef()
-  const foundationRef = useRef()
+  const photoRef = useRef();
+  const cityRef = useRef();
+  const countryRef = useRef();
+  const populationRef = useRef();
+  const foundedRef = useRef();
 
   const form = [
     {
@@ -23,14 +19,14 @@ export default function NewCity() {
       htmlFor: "city",
       type: "text",
       placeholder: "Enter a city",
-      value: cityNameRef,
+      value: cityRef,
     },
     {
       label: "Country",
       htmlFor: "country",
       type: "text",
       placeholder: "Enter a country",
-      value: countryNameRef,
+      value: countryRef,
     },
     {
       label: "Population",
@@ -44,36 +40,34 @@ export default function NewCity() {
       htmlFor: "photo",
       type: "text",
       placeholder: "Enter a photo",
-      value: cityPhotoRef,
+      value: photoRef,
     },
     {
       label: "Founded",
       htmlFor: "founded",
       type: "date",
       placeholder: "Enter a founded",
-      value: foundationRef,
+      value: foundedRef,
     },
   ];
 
-
-  function newCity(e)  {
+  function newCity(e) {
     e.preventDefault();
 
     const dataCity = {
-      city: cityNameRef.current.value,
-      photo: cityPhotoRef.current.value,
-      country: countryNameRef.current.value,
+      city: cityRef.current.value,
+      photo: photoRef.current.value,
+      country: countryRef.current.value,
       population: populationRef.current.value,
-      founded: foundationRef.current.value
+      founded: foundedRef.current.value,
+    };
+    createCity(dataCity);
+
+    ///Get better option for a new city///
+    alert("Created successfully");
+
+    ///Add a reset here =) ♥
   }
-  console.log(dataCity)
-  createCity(dataCity)
-
-  ///Get better option for a new city///
-alert("Created successfully")
-
-///Add a reset here =) ♥
-}
 
   return (
     <div className="NewCity-container">
@@ -94,5 +88,4 @@ alert("Created successfully")
       </form>
     </div>
   );
-
-        }
+}
