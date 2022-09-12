@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Option from '../components/Option'
 import Input from '../components/Input'
+import apiurl from '../api'
 
 export default function EditCity() {
   const form = [
@@ -14,7 +15,7 @@ export default function EditCity() {
   ]
   const [cities, setCities] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:4000/cities')
+    axios.get(apiurl + '/cities')
       .then(res => setCities(res.data))
   }, [])
 
