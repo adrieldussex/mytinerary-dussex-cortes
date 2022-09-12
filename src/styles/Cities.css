@@ -2,7 +2,8 @@
     min-height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-evenly;
     background-color: #061116;
     padding: 0% 10%;
     gap: 20px;
@@ -19,4 +20,27 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
+}
+
+.Cities-input {
+    background-color: #eee;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    outline-color: #00D3EA;
+    padding: 1rem;
+    height: 30px;
+    width: 290px;
+}
+
+@media (min-width: 768px) {
+    .Cities-input {
+        width: 380px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .Cities-input {
+        width: 780px;
+    }
 }
