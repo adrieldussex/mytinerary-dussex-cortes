@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import EditCity from './pages/EditCity';
 import City from './pages/City';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <WebsiteLayout>
         <Routes>
           <Route path='/' element={<Hero />}/>
+          <Route path='/auth/signup' element={<SignUp />}/>
           <Route path='/cities' element={<Cities />}/>
           <Route path='/newcity' element={<NewCity />}/>
           <Route path='/*' element={<UnderConstruction />}/>
