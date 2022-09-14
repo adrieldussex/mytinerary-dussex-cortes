@@ -9,6 +9,7 @@ import ScrollToTop from './components/ScrollToTop';
 import EditCity from './pages/EditCity';
 import City from './pages/City';
 import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
 import MyTinerares from './pages/MyTinerares';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/' element={<Hero />}/>
           <Route path='/mytineraries' element={<MyTinerares />}/>
           <Route path='/auth/signup' element={<SignUp />}/>
+          <Route path='/auth/signin' element={<SignIn />}/>
           <Route path='/cities' element={<Cities />}/>
           <Route path='/newcity' element={<NewCity />}/>
           {/* <Route path='/*' element={<UnderConstruction />}/> */}

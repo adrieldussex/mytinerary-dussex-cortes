@@ -8,8 +8,6 @@ export default function SignInGoogle() {
         let userObject = jose.decodeJwt(response.credential)
     
         let data  = {
-            name: userObject.name,
-            photo: userObject.picture,
             mail: userObject.email,
             pass: userObject.sub,
             role: 'user',
@@ -23,12 +21,12 @@ export default function SignInGoogle() {
         google.accounts.id.initialize({
             client_id: "919249866967-qffo42lhcei7m2472ut3sntdmgm23umi.apps.googleusercontent.com",
             callback: handleCredentialResponse,
-            context: "signup"
+            context: "use"
           });
 
           google.accounts.id.renderButton(
             buttonDiv.current,
-            { theme: "outline", size: "large", text: "signup_with", shape: "pill" }
+            { theme: "outline", size: "large", text: "continue_with", shape: "pill" }
           );
     }, [])
 
