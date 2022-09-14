@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import * as jose from 'jose'
 
-export default function SignUpGoogle() {
+export default function SignInGoogle() {
     const buttonDiv = useRef(null)
-    console.log(buttonDiv.current)
     
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
-        console.log(userObject)
     
         let data  = {
             name: userObject.name,
@@ -24,18 +22,17 @@ export default function SignUpGoogle() {
         /* global google */
         google.accounts.id.initialize({
             client_id: "919249866967-qffo42lhcei7m2472ut3sntdmgm23umi.apps.googleusercontent.com",
-            callback: handleCredentialResponse
+            callback: handleCredentialResponse,
+            context: "signup"
           });
 
           google.accounts.id.renderButton(
             buttonDiv.current,
-            { theme: "outline", size: "large" }  // customization attributes
+            { theme: "outline", size: "large", text: "signup_with", shape: "pill" }
           );
-        //   google.accounts.id.prompt();
     }, [])
 
-
   return (
-    <div ref={buttonDiv}>SignUpGoogle</div>
+    <div ref={buttonDiv}></div>
   )
 }
