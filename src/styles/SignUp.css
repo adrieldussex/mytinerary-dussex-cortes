@@ -67,3 +67,15 @@ hr {
     text-decoration: none;
     color: #00D3EA;
 }
+
+.Register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+form button {
+    cursor: pointer;
+}
