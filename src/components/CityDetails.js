@@ -1,11 +1,27 @@
-import { useEffect } from 'react'
 import '../styles/CityDetails.css'
 import ButtonBack from './ButtonBack'
-import Itinerary from './Itinerary'
+// import Itinerary from './Itinerary'
 import axios from 'axios'
 import apiurl from '../api'
+import { useGetItineraryByCUMutation } from "../features/itineraryAPI";
+import { useEffect, useState } from "react";
+import Itinerary from "../components/Itinerary";
+
 
 export default function CityDetails(props) {
+    
+    const [id, setId] = useState("630fb1cb8faf68486b5cf0b4");
+  
+    const [getAllItinerary, { data: items}] = useGetItineraryByCUMutation();
+     
+    useEffect(() => {
+      getAllItinerary({ city: id, user: "" });
+    }, []  );
+    
+    console.log(items)
+  
+
+
     const city = props.data
     let newDate = new Date(city.founded)
     let year = newDate.getFullYear()
@@ -35,7 +51,7 @@ return (
                 <p className='Info-founded'>Founded: {year}</p>
             </div>
             
-            <Itinerary/>
+            {items?.map(Itinerary)}
             <ButtonBack linkTo='/cities' buttonText='Back to Cities'/>
     </div>
 )
