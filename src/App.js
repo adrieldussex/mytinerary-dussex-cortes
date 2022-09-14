@@ -11,6 +11,7 @@ import City from './pages/City';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import MyTinerares from './pages/MyTinerares';
+import NewItinerary from './pages/NewItinerary';
 
 function App() {
   return (
@@ -20,11 +21,12 @@ function App() {
         <Routes>
           <Route path='/' element={<Hero />}/>
           <Route path='/mytineraries' element={<MyTinerares />}/>
+          <Route path='/newitinerary' element={<NewItinerary />}/>
           <Route path='/auth/signup' element={<SignUp />}/>
           <Route path='/auth/signin' element={<SignIn />}/>
           <Route path='/cities' element={<Cities />}/>
           <Route path='/newcity' element={<NewCity />}/>
-          {/* <Route path='/*' element={<UnderConstruction />}/> */}
+          <Route path='/*' element={<UnderConstruction />}/>
           <Route path='/cities/:id' element={<City />}/>
           <Route path='/editcity' element={<EditCity />}/>
         </Routes>

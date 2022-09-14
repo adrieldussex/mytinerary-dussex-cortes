@@ -75,5 +75,6 @@ export default function SignUp() {
           <p>Do you have an account?</p>
           <LinkRouter to="/auth/signin">Log In</LinkRouter>
     </div>
+    </div>
   )
 }
