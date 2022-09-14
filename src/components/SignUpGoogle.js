@@ -3,11 +3,9 @@ import * as jose from 'jose'
 
 export default function SignUpGoogle() {
     const buttonDiv = useRef(null)
-    console.log(buttonDiv.current)
     
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
-        console.log(userObject)
     
         let data  = {
             name: userObject.name,
@@ -29,7 +27,7 @@ export default function SignUpGoogle() {
 
           google.accounts.id.renderButton(
             buttonDiv.current,
-            { theme: "outline", size: "large" }  // customization attributes
+            { theme: "outline", size: "large", text: "signup_with" }  // customization attributes
           );
         //   google.accounts.id.prompt();
     }, [])
