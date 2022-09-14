@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/EditCity.css"
 import Input from "../components/Input";
-import { useState, useEffect, useRef } from "react";
-import {useGetAllCitiesQuery,useEditCityMutation,useGetCityQuery} from "../features/citiesAPI";
+import { useState, useRef } from "react";
+import {useGetAllCitiesQuery,useEditCityMutation} from "../features/citiesAPI";
 
 export default function EditCity() {
 
@@ -11,8 +11,6 @@ export default function EditCity() {
   const [editCity] = useEditCityMutation();
 
   const [id, setId] = useState();
-
-// const {data: city} = useGetCityQuery(id) /// Esto lo usaré para rellenar los inputs =) 
 
   const cityRef = useRef();
   const photoRef = useRef();
@@ -25,35 +23,30 @@ export default function EditCity() {
       label: "City",
       htmlFor: "city",
       type: "text",
-      placeholder: "Enter a city",
       value: cityRef,
     },
     {
       label: "Country",
       htmlFor: "country",
       type: "text",
-      placeholder: "Enter a country",
       value: countryRef,
     },
     {
       label: "Population",
       htmlFor: "population",
       type: "number",
-      placeholder: "Enter a population",
       value: populationRef,
     },
     {
       label: "Photo",
       htmlFor: "photo",
       type: "text",
-      placeholder: "Enter a photo",
       value: photoRef,
     },
     {
       label: "Founded",
       htmlFor: "founded",
       type: "date",
-      placeholder: "Enter a founded",
       value: foundedRef,
     },
   ];
@@ -84,7 +77,6 @@ export default function EditCity() {
     console.log(e.target.value)
     setId(e.target.value)
     console.log(id)
-
   }
 
   return (
@@ -93,7 +85,7 @@ export default function EditCity() {
       <div className="Select-container">
         <form className="NewCity-form" onSubmit={updateCity}>
           <select className="EditCity-select" onChange={getID}>
-            <option hidden>Select city for Edit</option>
+            <option hidden>Select city to edit</option>
             {cities?.map((city) => (
               <option className="Option-select" key={city._id} value={city._id}  >{city.city} </option>
             ))}
