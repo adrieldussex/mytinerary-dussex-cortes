@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import SignUpGoogle from '../components/SignUpGoogle'
 import '../styles/SignUp.css'
 import { Link as LinkRouter } from 'react-router-dom'
@@ -74,6 +74,7 @@ export default function SignUp() {
         <div className='SignUp-logIn'>
           <p>Do you have an account?</p>
           <LinkRouter to="/auth/signin">Log In</LinkRouter>
+        </div>
     </div>
   )
 }
