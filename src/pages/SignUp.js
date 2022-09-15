@@ -76,6 +76,5 @@ export default function SignUp() {
           <LinkRouter to="/auth/signin">Log In</LinkRouter>
         </div>
     </div>
-    </div>
   )
 }
