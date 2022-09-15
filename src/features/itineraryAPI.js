@@ -25,8 +25,7 @@ const itineraryAPI = createApi({
             url: `/itineraries/?city=${city}&&user=${user}`,
             method: "GET",
             
-          }),transformResponse: (e)=>{
-            return(e.response) }
+          }), transformResponse: (e)=> e.response
     }),
 
     editItinerary: builder.mutation({
