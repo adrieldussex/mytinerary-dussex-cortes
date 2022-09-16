@@ -3,46 +3,90 @@ import SignUpGoogle from '../components/SignUpGoogle'
 import '../styles/SignUp.css'
 import { Link as LinkRouter } from 'react-router-dom'
 import Input from '../components/Input'
+import {useSingUpMutation} from '../features/usersAPI'
+import { useRef } from 'react'
+import Alert from '../components/Alert/Alert'
 
 export default function SignUp() {
+let [SignUpRedux, {data : userRedux , error}] = useSingUpMutation()
+let msg = ""
+
+
+if(userRedux?.success){
+  console.log(userRedux?.data)
+  msg = userRedux?.message
+}else{
+  console.log(error)
+  msg = error?.data.message
+}
+
+
+
+const nameRef = useRef();
+const lastNameRef = useRef();
+const emailRef = useRef();
+const countryRef = useRef();
+const passwordRef = useRef();
+const photoRef = useRef();
+
   const form = [
     {
       label:"Name",
       name: "name",
       type: "text",
-      value: ""
+      value: nameRef
     },
     {
       label:"Lastname",
       name: "lastName",
       type: "text",
-      value: ""
+      value: lastNameRef
     },
     {
       label:"Email",
       name: "email",
       type: "email",
-      value: ""
+      value: emailRef
     },
     {
       label:"Country",
       name: "country",
       type: "text",
-      value: ""
+      value: countryRef
     },
     {
       label:"Password",
       name: "password",
       type: "password",
-      value: ""
+      value: passwordRef
     },
     {
       label:"Photo",
       name: "photo",
       type: "url",
-      value: ""
+      value: photoRef
     }
   ]
+
+function newUser (e){
+  e.preventDefault();
+  
+  let dataCity = {
+    name : nameRef.current.value,
+    lastName : lastNameRef.current.value,
+    mail : emailRef.current.value,
+    country : countryRef.current.value,
+    password : passwordRef.current.value,
+    photo : photoRef.current.value,    
+    role : "user",
+    from : "form"
+    }
+    
+    SignUpRedux(dataCity)
+  }
+    
+
+
 
   return (
     <div className='SignUp-container'>
@@ -59,16 +103,18 @@ export default function SignUp() {
             <h3>OR</h3>
             <hr></hr>
           </div>
-          <form className='Register-form'>
+          <form className='Register-form'  onSubmit={newUser}>
             {form.map((input) => (
               <Input
                 name = {input.name}
                 type = {input.type}
                 label = {input.label}
+                key = {input.name}
+                value = {input.value}
               />
             ))}
           <p>By signing up, you agree to our Terms, Privacy Policy and Cookies Policy.</p>
-          <button className='Submit-button' type='submit'>Sign Up</button>
+          <Alert label={"SIGN UP"} message={msg} />
         </form>
         </div>
         <div className='SignUp-logIn'>
