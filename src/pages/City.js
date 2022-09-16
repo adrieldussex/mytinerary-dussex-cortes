@@ -13,7 +13,6 @@ function City() {
         axios.get(`${apiurl}/cities/${id}`)
         .then(res => {setName(res.data.response)})
         .catch(err=>{
-            console.log(err)
         })
     },[])
 
