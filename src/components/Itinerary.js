@@ -3,7 +3,6 @@ import Activities from './Activities'
 import Comments from './Comments'
 
 export default function Itinerary(item) {
-    console.log(item)
     return (       
     <div className='Itinerary-container' key={item._id}>        
          <div className='Itinerary-card'>
