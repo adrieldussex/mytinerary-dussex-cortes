@@ -10,5 +10,5 @@ export default configureStore({
     [userAPI.reducerPath]: userAPI.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(citiesAPI.middleware),
+    getDefaultMiddleware().concat(citiesAPI.middleware).concat(itineraryAPI.middleware),
 });
