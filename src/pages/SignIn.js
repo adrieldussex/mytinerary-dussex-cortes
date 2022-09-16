@@ -37,6 +37,7 @@ let msg = ""
 if (signInReduz?.success) {
   msg = signInReduz.message
 }else {
+  console.log(error)
   msg = error?.data.message
 }
 

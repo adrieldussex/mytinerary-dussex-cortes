@@ -3,12 +3,18 @@ import "../styles/NewCity.css";
 import Input from "../components/Input";
 import { useCreateCityMutation } from "../features/citiesAPI";
 import { useRef } from "react";
-import Checkout from "../components/Alert/Alert";
-
-
+import Alert from "../components/Alert/Alert";
 
 export default function NewCity() {
-  const [createCity] = useCreateCityMutation();
+  const [createCity, { data: city, error }] = useCreateCityMutation();
+  let msg = "";
+  let messageCity = city?.message;
+
+  if (city?.success) {
+    msg = messageCity;
+  } else {
+    msg = error?.data.message;
+  }
 
   const photoRef = useRef();
   const cityRef = useRef();
@@ -54,6 +60,8 @@ export default function NewCity() {
     },
   ];
 
+  console.log(city);
+
   function newCity(e) {
     e.preventDefault();
 
@@ -65,11 +73,6 @@ export default function NewCity() {
       founded: foundedRef.current.value,
     };
     createCity(dataCity);
-
-    ///Get better option for a new city///
-    alert("Created successfully");
-
-    ///Add a reset here =) ♥
   }
 
   return (
@@ -85,7 +88,7 @@ export default function NewCity() {
             value={input.value}
           />
         ))}
-        <Checkout label={"Create"} />
+        <Alert label={"Create"} message={msg} />
       </form>
     </div>
   );
