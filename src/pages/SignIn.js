@@ -8,21 +8,20 @@ import Checkout from "../components/Alert/Alert";
 export default function SignIn() {
   const mailRef = useRef();
   const passwordRef = useRef();
-  
+
   const [SignInRedux, { data: signInReduz, error }] = useSingInMutation();
-  
-  
-  
+
   const [user, setUser] = useState();
   let id = signInReduz?.response.user;
 let msg = ""
+
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(id));
   }, user);
 
   function handleSubmit(e) {
     e.preventDefault();
-    
+
     let dataLog = {
       password: passwordRef.current.value,
       mail: mailRef.current.value,
@@ -39,7 +38,11 @@ if (signInReduz?.success) {
 }
 
 
-
+  if (signInReduz?.success) {
+    msg = signInReduz.message
+  } else {
+    msg = error?.data.message
+  }
 
   return (
     <div className="SignUp-container">

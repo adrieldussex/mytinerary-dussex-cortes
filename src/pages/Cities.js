@@ -11,6 +11,7 @@ export default function Cities() {
   }
 
   let { data: cities } = useSearchCitiesQuery(search.current ? search.current.value : "")
+
   return (
     <div className='Cities-container'>
       <h1>Cities</h1>
