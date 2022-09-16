@@ -65,6 +65,7 @@ export default function SignUp() {
                 name = {input.name}
                 type = {input.type}
                 label = {input.label}
+                key = {input.name}
               />
             ))}
           <p>By signing up, you agree to our Terms, Privacy Policy and Cookies Policy.</p>
