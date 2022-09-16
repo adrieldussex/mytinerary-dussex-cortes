@@ -35,6 +35,12 @@ const itineraryAPI = createApi({
         body: dataItinerary,
       }),
     }),
+    delItinerary: builder.mutation({
+      query: ( id) => ({
+        url: `/itineraries/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -44,4 +50,5 @@ export const {
   useCreateItineraryMutation,
   useEditItineraryMutation,
   useGetItineraryByCUMutation,
+  useDelItineraryMutation,
 } = itineraryAPI;
