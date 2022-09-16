@@ -17,9 +17,7 @@ export default function AddItinerary() {
 
 
   function getID(e) {
-    console.log(e.target.value);
     setId(e.target.value);
-    console.log(id);
   }
 
   const form = [
@@ -55,7 +53,6 @@ export default function AddItinerary() {
 
   function Create(e) {
     e.preventDefault();
-    console.log(id);
 
     const dataItinerary = {
       name: nameRef.current.value,
@@ -65,7 +62,6 @@ export default function AddItinerary() {
       tags: tagsRef.current.value,
       duration: durationRef.current.value,
     };
-    console.log(dataItinerary);
     NewItineraryRedux(dataItinerary);
   }
 
