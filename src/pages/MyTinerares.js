@@ -2,7 +2,7 @@ import React from "react";
 import { useGetItineraryByCUMutation } from "../features/itineraryAPI";
 import { useEffect, useState } from "react";
 import Itinerary from "../components/ItineraryPage";
-import "../styles/NewCity.css";
+import "../styles/MyTinerary.css";
 import { Link as LinkRouter } from "react-router-dom";
 
 export default function MyTinerares() {
@@ -17,12 +17,12 @@ export default function MyTinerares() {
   }, [id]);
 
   return (
-    <>
+    <div className="MyTinerary-container">      
       <LinkRouter to="/NewItinerary" className="Submit-button">
         {" "}
         Add Itinerary{" "}
       </LinkRouter>
       {items?.map(Itinerary)}
-    </>
+    </div>
   );
 }
