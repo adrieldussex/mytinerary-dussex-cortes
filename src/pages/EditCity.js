@@ -54,7 +54,6 @@ export default function EditCity() {
 
   function updateCity(e) {
     e.preventDefault();
-    console.log(id)
     
     const dataCity = {
       city: cityRef.current.value,
@@ -64,7 +63,6 @@ export default function EditCity() {
       founded: foundedRef.current.value,
       
     };
-    console.log(dataCity)
     editCity({dataCity,id});
 
     ///Get better option for a new city///
@@ -74,9 +72,7 @@ export default function EditCity() {
   }
 
   function getID(e){
-    console.log(e.target.value)
     setId(e.target.value)
-    console.log(id)
   }
 
   return (

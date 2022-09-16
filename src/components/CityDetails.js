@@ -10,7 +10,6 @@ import Itinerary from "../components/Itinerary";
 export default function CityDetails(props) {
 
     const [id, setId] = useState("630fb1cb8faf68486b5cf0b4");
-
     const [getAllItinerary, { data: items }] = useGetItineraryByCUMutation();
 
     useEffect(() => {
@@ -24,9 +23,8 @@ export default function CityDetails(props) {
     useEffect(() => {
         if (city) {
             axios.get(`${apiurl}/cities/?city=${city._id}`)
-                .catch(err => {
-                    console.log(err)
-                })
+            .catch(err=>{             
+            })
         }
     }, [city])
 

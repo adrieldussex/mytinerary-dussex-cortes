@@ -60,8 +60,6 @@ export default function NewCity() {
     },
   ];
 
-  console.log(city);
-
   function newCity(e) {
     e.preventDefault();
 

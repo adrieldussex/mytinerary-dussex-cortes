@@ -13,10 +13,8 @@ let msg = ""
 
 
 if(userRedux?.success){
-  console.log(userRedux?.data)
   msg = userRedux?.message
 }else{
-  console.log(error)
   msg = error?.data.message
 }
 

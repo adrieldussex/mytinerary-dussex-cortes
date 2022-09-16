@@ -6,11 +6,8 @@ export default function EditItinerary() {
     { label: "Delete" }
 ];
 
-  console.log(buttons);
   function printButtons(e) {
-
       <button> {e.label} </button>
-
   }
   return (
     <div>
