@@ -3,6 +3,9 @@ import "../styles/NewCity.css";
 import Input from "../components/Input";
 import { useCreateCityMutation } from "../features/citiesAPI";
 import { useRef } from "react";
+import Checkout from "../components/Alert/Alert";
+
+
 
 export default function NewCity() {
   const [createCity] = useCreateCityMutation();
@@ -82,9 +85,7 @@ export default function NewCity() {
             value={input.value}
           />
         ))}
-        <button className="Submit-button" type="submit">
-          Add City
-        </button>
+        <Checkout label={"Create"} />
       </form>
     </div>
   );
