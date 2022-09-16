@@ -18,8 +18,6 @@ export default function CityDetails(props) {
       getAllItinerary({ city: id, user: "" });
     }, []  );
     
-    console.log(items)
-  
 
 
     const city = props.data
@@ -30,7 +28,7 @@ export default function CityDetails(props) {
         if (city) {
             axios.get(`${apiurl}/cities/?city=${city._id}`)
             .catch(err=>{
-                console.log(err)
+             
             })
         }
     },[city])
