@@ -7,7 +7,7 @@ export default function Itinerary(item) {
   return (
     <div className="Itinerary-container" key={item._id}>
       <div className="Itinerary-card">
-        <div className="Itinerary-photo"> <img className='Itinerary-photo' src={item.user.photo} alt={data}></img> </div>
+        <div className="Itinerary-photo"> <img className='Itinerary-photo' src={item.user.photo} alt={item.user.name}></img> </div>
         <div className="Itinerary-description">
           <div className="Itinerary-name">
             <h3>{item.name}</h3>
