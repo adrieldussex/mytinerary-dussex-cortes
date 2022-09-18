@@ -9,6 +9,14 @@ const userAPI = createApi({
   }),
   endpoints: (builder) => ({
 
+    getOneUser: builder.mutation({
+      query: (userID) => ({
+          url: `/auth/?user=${userID}`,
+          method: "GET",          
+        }), 
+        // transformResponse: (e)=> e.response
+  }),
+
     singUp: builder.mutation({
       query: (dataCity) => ({
         url: `/auth/signup`,
@@ -16,7 +24,6 @@ const userAPI = createApi({
         body: dataCity,
       }),
     }),
-
     singIn: builder.mutation({
         query: (dataCity) => ({
           url: `/auth/signin`,
@@ -24,9 +31,6 @@ const userAPI = createApi({
           body: dataCity,
         }),
       }),
-
-
-
     singOut: builder.mutation({
         query: (dataCity) => ({
           url: `/auth/signout`,
@@ -39,4 +43,4 @@ const userAPI = createApi({
 
 export default userAPI;
 
-export const { useSingInMutation , useSingOutMutation , useSingUpMutation } = userAPI;
+export const {useSingInMutation , useSingOutMutation , useSingUpMutation, useGetOneUserMutation } = userAPI;
