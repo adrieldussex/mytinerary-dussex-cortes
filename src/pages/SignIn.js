@@ -13,11 +13,11 @@ export default function SignIn() {
 
   const [user, setUser] = useState();
   let id = signInReduz?.response.user;
-let msg = ""
+  let msg = "";
 
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(id));
-  }, user);
+  if(signInReduz?.success){
+    localStorage.setItem("user", JSON.stringify(id))
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,19 +30,14 @@ let msg = ""
     SignInRedux(dataLog);
     setUser(signInReduz);
   }
- 
-if (signInReduz?.success) {
-  msg = signInReduz.message
-}else {
-  msg = error?.data.message
-}
-
+  console.log(signInReduz)
 
   if (signInReduz?.success) {
-    msg = signInReduz.message
+    msg = signInReduz.message;
   } else {
-    msg = error?.data.message
+    msg = error?.data.message;
   }
+
 
   return (
     <div className="SignUp-container">
