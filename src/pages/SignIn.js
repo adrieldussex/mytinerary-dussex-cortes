@@ -9,13 +9,13 @@ export default function SignIn() {
   const mailRef = useRef();
   const passwordRef = useRef();
 
-  const [SignInRedux, { data: signInReduz, error }] = useSingInMutation();
+  const [SignInRedux, { data: signInRedux, error }] = useSingInMutation();
 
   const [user, setUser] = useState();
-  let id = signInReduz?.response.user;
+  let id = signInRedux?.response.user;
   let msg = "";
 
-  if(signInReduz?.success){
+  if(signInRedux?.success){
     localStorage.setItem("user", JSON.stringify(id))
   }
 
@@ -28,12 +28,12 @@ export default function SignIn() {
       from: "form",
     };
     SignInRedux(dataLog);
-    setUser(signInReduz);
+    setUser(signInRedux);
   }
-  console.log(signInReduz)
+  console.log(signInRedux)
 
-  if (signInReduz?.success) {
-    msg = signInReduz.message;
+  if (signInRedux?.success) {
+    msg = signInRedux.message;
   } else {
     msg = error?.data.message;
   }
