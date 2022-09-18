@@ -15,6 +15,8 @@ export default function AddItinerary() {
   const { data: cities } = useGetAllCitiesQuery();
   const [NewItineraryRedux] = useCreateItineraryMutation()
 
+  let user = JSON.parse(localStorage.getItem("user"))
+  let userID = user.id
 
   function getID(e) {
     setId(e.target.value);
@@ -56,11 +58,12 @@ export default function AddItinerary() {
 
     const dataItinerary = {
       name: nameRef.current.value,
-      user: id, /// Modify user for get the user
+      user: userID, /// Modify user for get the user
       city: id,
       price: priceRef.current.value,
-      tags: tagsRef.current.value,
+      tags: [tagsRef.current.value],
       duration: durationRef.current.value,
+      likes: [""]
     };
     NewItineraryRedux(dataItinerary);
   }
