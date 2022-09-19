@@ -1,6 +1,7 @@
 import '../styles/CityDetails.css'
 import ButtonBack from './ButtonBack'
 // import Itinerary from './Itinerary'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import apiurl from '../api'
 import { useGetItineraryByCUMutation } from "../features/itineraryAPI";
@@ -8,25 +9,26 @@ import { useEffect, useState } from "react";
 import Itinerary from "../components/Itinerary";
 
 export default function CityDetails(props) {
-
-    const [id, setId] = useState("630fb1cb8faf68486b5cf0b4");
+    const idCity = useParams()
+    let id = useParams().id
+ 
     const [getAllItinerary, { data: items }] = useGetItineraryByCUMutation();
 
     useEffect(() => {
         getAllItinerary({ city: id, user: "" });
-    }, []);
+    }, [id]);
 
     const city = props.data
     let newDate = new Date(city.founded)
     let year = newDate.getFullYear()
-
-    useEffect(() => {
-        if (city) {
-            axios.get(`${apiurl}/cities/?city=${city._id}`)
-            .catch(err=>{             
-            })
-        }
-    }, [city])
+console.log(items)
+    // useEffect(() => {
+    //     if (city) {
+    //         axios.get(`${apiurl}/cities/?city=${city._id}`)
+    //         .catch(err=>{             
+    //         })
+    //     }
+    // }, [city])
 
     return (
         <div className="CityDetails-container">

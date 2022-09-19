@@ -9,15 +9,15 @@ export default function SignIn() {
   const mailRef = useRef();
   const passwordRef = useRef();
 
-  const [SignInRedux, { data: signInReduz, error }] = useSingInMutation();
+  const [SignInRedux, { data: signInRedux, error }] = useSingInMutation();
 
   const [user, setUser] = useState();
-  let id = signInReduz?.response.user;
-let msg = ""
+  let id = signInRedux?.response.user;
+  let msg = "";
 
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(id));
-  }, user);
+  if(signInRedux?.success){
+    localStorage.setItem("user", JSON.stringify(id))
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,21 +28,16 @@ let msg = ""
       from: "form",
     };
     SignInRedux(dataLog);
-    setUser(signInReduz);
+    setUser(signInRedux);
   }
- 
-if (signInReduz?.success) {
-  msg = signInReduz.message
-}else {
-  msg = error?.data.message
-}
+  console.log(signInRedux)
 
-
-  if (signInReduz?.success) {
-    msg = signInReduz.message
+  if (signInRedux?.success) {
+    msg = signInRedux.message;
   } else {
-    msg = error?.data.message
+    msg = error?.data.message;
   }
+
 
   return (
     <div className="SignUp-container">
