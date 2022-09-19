@@ -21,7 +21,7 @@ export default function CityDetails(props) {
     const city = props.data
     let newDate = new Date(city.founded)
     let year = newDate.getFullYear()
-
+console.log(items)
     // useEffect(() => {
     //     if (city) {
     //         axios.get(`${apiurl}/cities/?city=${city._id}`)
