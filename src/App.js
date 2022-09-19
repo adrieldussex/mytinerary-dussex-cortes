@@ -14,41 +14,13 @@ import MyTinerares from "./pages/MyTinerares";
 import NewItinerary from "./pages/NewItinerary";
 
 function App() {
-  let userRole = "";
-  let admin = "";
-  let newCity = "";
-  let editCity = "";
-  let myTineraries = "";
-  let newTineraries = "";
+  let user = "";
 
   if (localStorage.length > 0) {
-    let user = JSON.parse(localStorage.getItem("user"));
-    userRole = user.role;
-  }
-
-  if (userRole == "admin") {
-    newCity = <NewCity />;
-    editCity = <EditCity />;
-    myTineraries = <MyTinerares />;
-    newTineraries = <NewItinerary />;
-    
-    console.log("is admin");
-  } else if (userRole == "user") {
-    
-    newCity = <UnderConstruction />;
-    editCity = <UnderConstruction />;
-    myTineraries = <MyTinerares />;
-    newTineraries = <NewItinerary />;
-    
-    console.log("is a user");
+    user = JSON.parse(localStorage.getItem("user")).role;
+    console.log(user);
   } else {
-    
-    newCity = <UnderConstruction />;
-    editCity = <UnderConstruction />;
-    myTineraries = <UnderConstruction />;
-    newTineraries = <UnderConstruction />;
-
-    console.log("is no user");
+    console.log(user);
   }
 
   return (
@@ -57,15 +29,15 @@ function App() {
       <WebsiteLayout>
         <Routes>
           <Route path="/" element={<Hero />} />
-          <Route path="/mytineraries" element={myTineraries} />
-          <Route path="/newitinerary" element={newTineraries} />
+          <Route path="/mytineraries" element={user == "" ? <UnderConstruction /> : <MyTinerares />}/>
+          <Route path="/newitinerary" element={user == "" ? <UnderConstruction /> : <NewItinerary />}/>
+          <Route path="/newcity" element={user == "admin" ? <NewCity /> : <UnderConstruction />} />
+          <Route path="/editcity" element={user == "admin" ? <EditCity /> : <UnderConstruction/>} />
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth/signin" element={<SignIn />} />
           <Route path="/cities" element={<Cities />} />
-          <Route path="/newcity" element={newCity} />
           <Route path="/*" element={<UnderConstruction />} />
           <Route path="/cities/:id" element={<City />} />
-          <Route path="/editcity" element={editCity} />
         </Routes>
       </WebsiteLayout>
     </BrowserRouter>
