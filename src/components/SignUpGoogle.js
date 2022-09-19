@@ -1,22 +1,28 @@
 import React, { useEffect, useRef } from 'react'
 import * as jose from 'jose'
+import { useSingUpMutation } from '../features/usersAPI'
 
 export default function SignInGoogle() {
     const buttonDiv = useRef(null)
+    let newUser = useSingUpMutation
     
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
-    
-        let data  = {
-            name: userObject.name,
-            photo: userObject.picture,
-            mail: userObject.email,
-            pass: userObject.sub,
-            role: 'user',
-            from: 'google',
-        } // newUser(data)
-    }
-    
+        console.log(userObject)
+
+        let data = {
+          name: userObject.given_name,
+          lastname: userObject.family_name,
+          photo: userObject.picture,
+          mail: userObject.email,
+          password: userObject.sub,
+          country: "Argentina",
+          role: 'user',
+          from: 'google'
+        }
+        newUser(data)
+      }
+      
     useEffect(() => {
 
         /* global google */
