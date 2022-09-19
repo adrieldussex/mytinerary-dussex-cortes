@@ -10,7 +10,7 @@ export default function MyTinerares() {
 
   let id = ""
 
-if(localStorage){
+if(localStorage.length > 0){
 let user = JSON.parse(localStorage.getItem("user"))
 id = user.id
 }
