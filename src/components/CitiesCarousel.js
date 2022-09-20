@@ -3,17 +3,9 @@ import Carousel from './Carousel'
 import { useGetAllCitiesQuery } from '../features/citiesAPI'
 
 export default function CitiesCarousel() {
-    const {
-      data : items,
-      error,
-      isLoading,
-      isSucess,
-      isFailed
-    }
-    = useGetAllCitiesQuery()
-
+    const { data : cities } = useGetAllCitiesQuery()
 
   return (
-    <Carousel data={items} range={4} slides={3} interval={4} />
+    <Carousel data={cities} range={4} slides={3} interval={4} />
   )
 }

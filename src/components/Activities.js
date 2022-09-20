@@ -18,7 +18,7 @@ export default function Activities() {
 
     const view = (activity) => {
         return (
-            <div className='Activity-card' style={{backgroundImage:`url(${activity.photo})`, backgroundSize:"cover"}}>
+            <div className='Activity-card' key={activity.name} style={{backgroundImage:`url(${activity.photo})`, backgroundSize:"cover"}}>
                 <p>{activity.name}</p>
             </div>
         )

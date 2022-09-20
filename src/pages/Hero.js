@@ -14,7 +14,7 @@ export default function Hero() {
               <CallToAction linkTo='cities'/>
           </div>
           <div className='Hero-bottom'>                
-              <img src="http://localhost:3000/img/Logo.png" alt="logo-hero"></img>
+              <img src="/img/Logo.png" alt="logo-hero"></img>
           </div>
       </div>
       <CitiesCarousel />
