@@ -24,7 +24,6 @@ const itineraryAPI = createApi({
         query: ({city,user}) => ({
             url: `/itineraries/?city=${city}&&user=${user}`,
             method: "GET",
-            
           }), transformResponse: (e)=> e.response
     }),
 
