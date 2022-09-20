@@ -24,17 +24,19 @@ export default function Footer() {
     <footer className='Footer-container'>
       <div className='Footer-top'>        
         <LinkRouter to='/'>
-          <img className='Footer-logo' src='http://localhost:3000/img/Logo-nav.png' alt='logo'></img>
+          <img className='Footer-logo' src='/img/Logo-nav.png' alt='logo'></img>
         </LinkRouter>
           <div className='Footer-links'>
               <nav>{pages.map(link)}</nav>
               <button className='Chevron' onClick={scrollUp}>
-                <img src='http://localhost:3000/img/chevron-up.svg' alt='chevron'></img>
+                <img src='/img/chevron-up.svg' alt='chevron'></img>
               </button>
           </div>
       </div>
       <div className='Footer-copy'>
-        <p>© {year.getFullYear()} All rights reserved | Designed by Adriel Dussex and Lucas Cortes</p>
+        <p>© {year.getFullYear()} All rights reserved | Designed by <a target='_blank' href="https://www.linkedin.com/in/adriel-dussex-481052238/">Adriel Dussex</a>,
+        <a target='_blank' href="https://www.linkedin.com/in/lucas-emiliano-cortes"> Lucas Cortes </a> and
+        <a target='_blank' href="https://www.linkedin.com/in/richard-reyes-vidal-384269154/"> Richard Reyes</a></p>
       </div>
     </footer>    
   )

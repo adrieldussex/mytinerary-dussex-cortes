@@ -2,16 +2,17 @@ import CityDetails from "../components/CityDetails"
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import axios from "axios"
+import apiurl from "../api"
+import Itinerary from '../components/Itinerary'
 
 function City() {
     const {id} = useParams()
     const [name, setName] = useState([]);
 
     useEffect(()=>{
-        axios.get(`http://localhost:4000/cities/${id}`)
+        axios.get(`${apiurl}/cities/${id}`)
         .then(res => {setName(res.data.response)})
         .catch(err=>{
-            console.log(err)
         })
     },[])
 
@@ -19,6 +20,7 @@ function City() {
     return (  
         <div className="CitiesPage-main">
             <CityDetails data={name} cityId={id} />
+            {/* <Itinerary data={name} /> */}
         </div>
     )
 }
