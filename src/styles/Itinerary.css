@@ -9,6 +9,7 @@
 
 .card {
     width: 90%;
+    max-width: 900px;
     height: 380px;
     background: #ECE9E6;
     background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
@@ -95,6 +96,13 @@
     --size: 110px;
     width: var(--size);
     height: var(--size);
+   }
+
+   .horizontal-line {
+    width: 100%;
+    border: #00D3EA 1px solid;
+    margin-top: 10px;
+    margin-bottom: 25px;
    }
 
 
