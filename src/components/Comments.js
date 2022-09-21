@@ -1,28 +1,16 @@
 import '../styles/Comments.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useGetItinerariesCommentsMutation } from '../features/commentsAPI';
 
-export default function Comments() {
+export default function Comments(props) {
+    let [getItinerariesComments, {data: comment}]= useGetItinerariesCommentsMutation()
+    let comments = comment?.response
 
-    let comments = [
-        {
-            message: "Woooow! That's all I can say mate.",
-            user: {
-                name: "Lionel",
-                surName: "Messi",
-                photo: "https://br.web.img3.acsta.net/c_310_420/pictures/19/08/14/22/33/0632419.jpg",
-                mail: "liomessi10@gmail.com"
-            }
-        },
-        {
-            message: "Awesome activities! I would like to be there dude.",
-            user: {
-                name: "Rodrigo",
-                surName: "De Paul",
-                photo: "https://es.coachesvoice.com/wp-content/uploads/2021/07/GettyImages-1323570345-1.jpg",
-                mail: "tinitinitini@gmail.com"
-            }
-        }
-    ]
+    useEffect(() => {
+        getItinerariesComments(props.itineraryId);
+    }, [props.itineraryId]);
+
+    console.log(comments)
 
     const [open, setOpen] = useState(false)
     const handleOpen = () => {
@@ -30,7 +18,7 @@ export default function Comments() {
             setOpen(false)
             : setOpen(true)
     }
-    const view = (comment) => {
+    const commentView = (comment) => {
         return (
             <div className='Comment-card'>
                 <div className='Comment-userPhoto'>
@@ -38,11 +26,11 @@ export default function Comments() {
                 </div>
                 <div className='Comment-description'>
                     <div className='Comment-user'>
-                        <h3>{comment.user.name} {''} {comment.user.surName}</h3>
+                        <h3>{comment.user.name} {''} {comment.user.lastName}</h3>
                         <p>{comment.user.mail}</p>
                     </div>
                     <div className='Comment-info'>
-                        <p>{comment.message}</p>
+                        <p>{comment.comment}</p>
                     </div>
                 </div>
             </div>
@@ -57,7 +45,7 @@ export default function Comments() {
             </button>
             {open ?
                 <div className='Comments-cards'>
-                    {comments.map(view)}
+                    {comments?.map(commentView)}
                 </div>
                 : null
             }

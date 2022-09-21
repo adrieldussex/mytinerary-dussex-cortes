@@ -10,8 +10,6 @@ export default function Activities(props) {
         getAllActivity(props.itineraryId);
     }, [props.itineraryId]);
 
-    console.log(activities)
-
     const activityView = (activity) => {
         return (
             <div className='Activity-card' key={activity.name} style={{backgroundImage:`url(${activity.photo})`, backgroundSize:"cover"}}>
