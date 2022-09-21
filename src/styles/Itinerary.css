@@ -1,90 +1,100 @@
 .Itinerary-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.card {
+    width: 90%;
+    height: 380px;
+    background: #ECE9E6;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+    overflow: visible;
+    box-shadow: 0 5px 20px 2px rgba(0,0,0,0.1);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-}
-
-
-.Itinerary-card {
-    position: relative;
-    width: 290px;
-    max-height: 700px;
+    border-radius: 1rem;
+   }
+   
+   .card-info {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    overflow: hidden;
-    color: black;
-    background-color: rgb(244, 244, 244);
-    padding: 5%;
-    border-radius: 3rem;
-}
-
-.Itinerary-photo {
-    height: 250px;
-    width: 250px;
-    border-radius: 360%;
-}
-
-.Itinerary-description {
-    height: 250px;
-    display: flex;
-    gap: 10px;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-}
+    align-items: center;
+    padding: 0 1rem;
+   }
 
-.Itinerary-name {
-    display: flex;
-    flex-direction: column;
-    color: black;
-}
-
-.Itinerary-name p {
-    color: rgb(0, 170, 255);
-    font-style: italic;
-    text-decoration: underline;
-}
-
-
-.Itinerary-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.Info-price-duration {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.Info-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+   .info-pd {
     margin-top: 15px;
-}
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+   }
+   
+   .card-img {
+    --size: 120px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    transition: all .3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    border: 0.8rem solid #f5f5f5;
+    overflow: hidden;
+   }
 
-.Like {
-    position: absolute;
-    right: 10%;
-    bottom: 3%;
-    cursor: pointer;
-}
+   .card-img img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+   }
+   
+   /*Text*/
+   .text-user {
+    font-size: .8em;
+    text-align: center;
+    color: #6f6d78;
+    font-weight: 400;
+    font-style: italic;
+    padding: 0 1rem;
+   }
 
-@media (min-width: 768px) {
-    .Itinerary-card {
-        min-width: 700px;
-        max-width: 700px;
-        padding: 3%;
-    }
-    .Like {
-        bottom: 5%;
-    }
-}
+   .text-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00A4DA;
+    letter-spacing: 0.05rem;
+   }
+   
+   .text-body {
+    font-size: 1rem;
+    text-align: center;
+    color: #2a2a2b;
+    font-weight: 600;
+    padding: 0 1rem;
+   }
+
+   .text-tags {
+    text-align: center;
+    padding: 0 1rem;
+    margin-top: 2rem;
+   }
+   
+   /*Hover*/
+   .card:hover .card-img {
+    --size: 110px;
+    width: var(--size);
+    height: var(--size);
+   }
 
 
