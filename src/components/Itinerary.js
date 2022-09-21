@@ -12,7 +12,7 @@ export default function Itinerary(item) {
         </div>
         <div className="card-info">
           <p className="text-title">{item.name}</p>
-          <p className="text-user">{item.user.name}</p>
+          <p className="text-user">By {item.user.name}{''} {item.user.lastName}</p>
           <div className="info-pd">
             <p className="text-body">Price: {"💵 ".repeat(item.price)}</p>
             <p className="text-body">Duration: {item.duration}hs</p>
@@ -21,7 +21,8 @@ export default function Itinerary(item) {
         </div>
       </div>
       <Activities itineraryId={item._id}/>
-      <Comments />
+      <Comments itineraryId={item._id}/>
+      <hr className="horizontal-line"></hr>
     </div>
   );
 }
