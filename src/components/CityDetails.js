@@ -7,7 +7,7 @@ import ButtonBack from './ButtonBack'
 
 export default function CityDetails(props) {
     let id = useParams().id
- 
+
     const [getAllItinerary, { data: items }] = useGetItineraryByCUMutation();
 
     useEffect(() => {
@@ -17,7 +17,6 @@ export default function CityDetails(props) {
     const city = props.data
     let newDate = new Date(city.founded)
     let year = newDate.getFullYear()
-console.log(items)
 
     return (
         <div className="CityDetails-container">

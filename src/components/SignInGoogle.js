@@ -1,18 +1,34 @@
 import React, { useEffect, useRef } from 'react'
 import * as jose from 'jose'
+import { useDispatch } from 'react-redux'
+import { useSignInMutation } from '../features/usersAPI'
+import { setCredentials } from '../features/authSlice'
 
 export default function SignInGoogle() {
     const buttonDiv = useRef(null)
+    const [signIn] = useSignInMutation()
+    const dispatch = useDispatch()
     
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
-    
-        let data  = {
+        let user  = {
             mail: userObject.email,
-            pass: userObject.sub,
+            password: userObject.sub,
             role: 'user',
             from: 'google',
-        } // newUser(data)
+        }
+
+        try {
+          let res = await signIn(user)
+          if (res.data?.success) {
+            console.log(res.data)
+            dispatch(setCredentials(res.data.response.user))
+            localStorage.setItem('token',res.data.response.token)
+          }
+          localStorage.setItem('user', JSON.stringify(res.data.response.user))
+        } catch (error) {
+          console.log(error)
+        }
     }
     
     useEffect(() => {

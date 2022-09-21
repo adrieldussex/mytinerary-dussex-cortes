@@ -1,21 +1,21 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import SignInGoogle from "../components/SignInGoogle";
 import "../styles/SignUp.css";
 import { Link as LinkRouter } from "react-router-dom";
-import { useSingInMutation } from "../features/usersAPI";
+import { useSignInMutation } from "../features/usersAPI";
 import Checkout from "../components/Alert/Alert";
 
 export default function SignIn() {
   const mailRef = useRef();
   const passwordRef = useRef();
 
-  const [SignInRedux, { data: signInRedux, error }] = useSingInMutation();
+  const [SignInRedux, { data: signInRedux, error }] = useSignInMutation();
 
   const [user, setUser] = useState();
   let id = signInRedux?.response.user;
   let msg = "";
 
-  if(signInRedux?.success){
+  if (signInRedux?.success) {
     localStorage.setItem("user", JSON.stringify(id))
   }
 

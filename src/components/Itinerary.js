@@ -14,13 +14,13 @@ export default function Itinerary(item) {
             <p>{item.user.name}</p>
           </div>
           <div className="Itinerary-info">
-            <p>Was a nice place</p>
+            {/* <p>Was a nice place</p> */}
             <div className="Info-price-duration">
               <p>Price: {item.price}</p>
               <p>Duration: {item.duration}</p>
             </div>
             <div className="Info-tags">
-              <p> {item.name} </p>
+              <p> {item.tags} </p>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@ export default function Itinerary(item) {
           <div className="Like">{item.likes.length}</div>
         </div>
       </div>
-      <Activities />
+      <Activities itineraryId={item._id}/>
       <Comments />
     </div>
   );

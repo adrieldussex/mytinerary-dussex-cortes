@@ -13,38 +13,44 @@ const userAPI = createApi({
         url: `/auth/?user=${userID}`,
         method: "GET",
       }),
-      // transformResponse: (e)=> e.response
     }),
-
-    singUp: builder.mutation({
+    signUp: builder.mutation({
       query: (dataCity) => ({
         url: `/auth/signup`,
         method: "POST",
         body: dataCity,
       }),
     }),
-    singIn: builder.mutation({
+    signIn: builder.mutation({
       query: (dataCity) => ({
         url: `/auth/signin`,
         method: "POST",
         body: dataCity,
       }),
     }),
-    singOut: builder.mutation({
+    signOut: builder.mutation({
       query: (dataCity) => ({
         url: `/auth/signout`,
         method: "POST",
         body: dataCity,
       }),
     }),
-  }),
+    signInToken: builder.mutation({
+      query: (token) => ({
+        url: 'auth/token',
+        method: 'GET',
+        headers: {Authorization: 'Bearer ' + token}
+      }),
+    })
+  })
 });
 
 export default userAPI;
 
 export const {
-  useSingInMutation,
-  useSingOutMutation,
-  useSingUpMutation,
+  useSignInMutation,
+  useSignOutMutation,
+  useSignUpMutation,
   useGetOneUserMutation,
+  useSignInTokenMutation
 } = userAPI;

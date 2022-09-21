@@ -40,7 +40,9 @@
 .Itinerary-name {
     display: flex;
     flex-direction: column;
+    color: black;
 }
+
 .Itinerary-name p {
     color: rgb(0, 170, 255);
     font-style: italic;
