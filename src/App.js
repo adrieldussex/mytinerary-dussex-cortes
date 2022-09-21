@@ -14,14 +14,7 @@ import MyTinerares from "./pages/MyTinerares";
 import NewItinerary from "./pages/NewItinerary";
 
 function App() {
-  let user = "";
-
-  if (localStorage.length > 0) {
-    user = JSON.parse(localStorage.getItem("user")).role;
-    console.log(user);
-  } else {
-    console.log(user);
-  }
+  let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : ""
 
   return (
     <BrowserRouter>
