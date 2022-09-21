@@ -1,18 +1,20 @@
 import React, { useEffect, useRef } from 'react'
 import * as jose from 'jose'
-import { useSingUpMutation } from '../features/usersAPI'
+import { useSignUpMutation } from '../features/usersAPI'
+import { useNavigate } from 'react-router-dom'
 
 export default function SignInGoogle() {
     const buttonDiv = useRef(null)
-    let newUser = useSingUpMutation
+    const navigate = useNavigate()
+    const [signUp] = useSignUpMutation()
     
     async function handleCredentialResponse(response) {
         let userObject = jose.decodeJwt(response.credential)
         console.log(userObject)
 
-        let data = {
+        let user = {
           name: userObject.given_name,
-          lastname: userObject.family_name,
+          lastName: userObject.family_name,
           photo: userObject.picture,
           mail: userObject.email,
           password: userObject.sub,
@@ -20,7 +22,17 @@ export default function SignInGoogle() {
           role: 'user',
           from: 'google'
         }
-        newUser(data)
+        try {
+          let res = await signUp(user)
+          if (res.data?.success) {
+            console.log(res.data)
+            navigate('/signin', {replace:true})
+          } else {
+            console.log(res.error)
+          }
+        } catch (error) {
+          console.log(error)
+        }
       }
       
     useEffect(() => {
