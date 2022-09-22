@@ -34,7 +34,7 @@ export default function Header() {
 
   function logOut() {
     console.log("first");
-    localStorage.removeItem("user");
+    localStorage.clear();
     console.log(user);
     let id = { _id: user.id };
     logOutRedux(id);
@@ -53,10 +53,7 @@ export default function Header() {
         <MobileNav />
         <Nav />
         {open && (
-          <div className="Header-user">
-            <LinkRouter className="Header-option" to="mytineraries">
-              MyTinerary
-            </LinkRouter>
+          <div className="Header-user">           
             <LinkRouter className="Header-option" to="myprofile">
               Profile
             </LinkRouter>
