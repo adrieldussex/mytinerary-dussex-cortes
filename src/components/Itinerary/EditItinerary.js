@@ -10,10 +10,10 @@ export default function EditItinerary() {
       <button> {e.label} </button>
   }
   return (
-    <div>
+    <div className="EditProfile-buttons">
       {/* {buttons?.map(printButtons)} */}
-      <button> Edit </button>
-    <button> Delete </button>
+      <button className="Profile-buttonEdit"> Edit </button>
+    <button className="Profile-buttonEdit"> Delete </button>
     </div>
   );
 }
