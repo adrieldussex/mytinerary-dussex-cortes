@@ -13,9 +13,17 @@ import SignIn from "./pages/SignIn";
 import MyTinerares from "./pages/MyTinerares";
 import NewItinerary from "./pages/NewItinerary";
 import Profile from "./pages/Profile";
+import {useEffect} from 'react'
 
 function App() {
-  let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : ""
+
+  let user = ""
+useEffect(() => {
+   user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : ""
+
+}, [localStorage])
+
+
 
   return (
     <BrowserRouter>
