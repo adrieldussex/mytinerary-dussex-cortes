@@ -3,13 +3,15 @@ import MobileNav from "./MobileNav";
 import Nav from "./Nav";
 import { Link as LinkRouter } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
-import {useSignOutMutation} from '../features/usersAPI'
+import { useSignOutMutation } from "../features/usersAPI";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const menuIcon = useRef(null);
-  let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : ""
-let [logOutRedux] = useSignOutMutation()
+  let user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : "";
+  let [logOutRedux] = useSignOutMutation();
   const handleCloseMenu = (event) => {
     const isClickInside = menuIcon.current.contains(event.target);
 
@@ -30,29 +32,48 @@ let [logOutRedux] = useSignOutMutation()
     };
   }, []);
 
-
-function logOut(){
-console.log("first")
-localStorage.removeItem("user")
-console.log(user)
-let id = { _id : user.id }
-logOutRedux(id)
-}
-
-
+  function logOut() {
+    console.log("first");
+    localStorage.removeItem("user");
+    console.log(user);
+    let id = { _id: user.id };
+    logOutRedux(id);
+  }
 
   return user !== "" ? (
     <div className="Header-container">
-      <LinkRouter to="/"><img className="Header-logo" src="/img/Logo-nav.png" alt="logo-header"></img>
-      </LinkRouter><div className="Header-right">
+      <LinkRouter to="/">
+        <img
+          className="Header-logo"
+          src="/img/Logo-nav.png"
+          alt="logo-header"
+        ></img>
+      </LinkRouter>
+      <div className="Header-right">
         <MobileNav />
         <Nav />
-        {open && (<div className="Header-user">
-          <LinkRouter className="Header-option" to="mytineraries">MyTinerary</LinkRouter>
-          <LinkRouter className="Header-option" to="/" onClick={logOut}>Sign Out</LinkRouter>
+        {open && (
+          <div className="Header-user">
+            <LinkRouter className="Header-option" to="mytineraries">
+              MyTinerary
+            </LinkRouter>
+            <LinkRouter className="Header-option" to="myprofile">
+              Profile
+            </LinkRouter>
+            <LinkRouter className="Header-option" to="/" onClick={logOut}>
+              Sign Out
+            </LinkRouter>
           </div>
         )}
-        <img className="Header-avatar"    src={user !== "" ? `${user.photo}` : "https://i.imgur.com/CNe5NKD.png"} alt="user-avatar" ref={menuIcon} onClick={handleToggleMenu}/>
+        <img
+          className="Header-avatar"
+          src={
+            user !== "" ? `${user.photo}` : "https://i.imgur.com/CNe5NKD.png"
+          }
+          alt="user-avatar"
+          ref={menuIcon}
+          onClick={handleToggleMenu}
+        />
       </div>
     </div>
   ) : (
