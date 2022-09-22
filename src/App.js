@@ -32,7 +32,7 @@ function App() {
           <Route path="/cities" element={<Cities />} />
           <Route path="/*" element={<UnderConstruction />} />
           <Route path="/cities/:id" element={<City />} />
-          <Route path="/myprofile" element={<Profile />} />
+          <Route path="/myprofile" element={user == "" ? <UnderConstruction /> : <Profile />} />
         </Routes>
       </WebsiteLayout>
     </BrowserRouter>
