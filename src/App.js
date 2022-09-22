@@ -12,6 +12,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import MyTinerares from "./pages/MyTinerares";
 import NewItinerary from "./pages/NewItinerary";
+import Profile from "./pages/Profile";
 
 function App() {
   let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : ""
@@ -31,6 +32,7 @@ function App() {
           <Route path="/cities" element={<Cities />} />
           <Route path="/*" element={<UnderConstruction />} />
           <Route path="/cities/:id" element={<City />} />
+          <Route path="/myprofile" element={<Profile />} />
         </Routes>
       </WebsiteLayout>
     </BrowserRouter>
