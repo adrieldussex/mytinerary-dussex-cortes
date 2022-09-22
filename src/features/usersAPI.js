@@ -8,9 +8,12 @@ const userAPI = createApi({
     baseUrl: apiurl,
   }),
   endpoints: (builder) => ({
+
+
+
     getOneUser: builder.mutation({
-      query: (userID) => ({
-        url: `/auth/?user=${userID}`,
+      query: (id) => ({
+        url: `/auth/${id}`,
         method: "GET",
       }),
     }),
