@@ -30,8 +30,6 @@ export default function SignIn() {
     SignInRedux(dataLog);
     setUser(signInRedux);
   }
-  console.log(signInRedux)
-
   if (signInRedux?.success) {
     msg = signInRedux.message;
   } else {
