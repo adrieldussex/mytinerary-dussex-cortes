@@ -42,6 +42,13 @@
     }
 }
 
+@media (min-width: 1024px) {
+    .Carousel-slide {
+        padding: 0% 0%;
+        width: 80%;
+    }
+}
+
 @media (min-width: 1920px) {
     .Carousel-slide {
         padding: 0% 0%;
