@@ -9,10 +9,18 @@ export default function NavLinks() {
     pages = [
       {name: 'Home', to: '/'},
       {name: 'Cities', to: '/cities'},
+      {name: 'My Tinerary', to: '/mytineraries'},
       {name: 'NewCity', to: '/newcity'},
-      {name: 'EditCity', to: '/editcity'}
+      {name: 'EditCity', to: '/editcity'},
+      {name: 'New admin', to: 'auth/signup'},
     ]
-  }else{
+  }else if (role == "user"){
+    pages = [
+      {name: 'Home', to: '/'},
+      {name: 'Cities', to: '/cities'},
+      {name: 'My Tinerary', to: '/mytineraries'}
+    ]
+    }else{
     pages = [
       {name: 'Home', to: '/'},
       {name: 'Cities', to: '/cities'}]

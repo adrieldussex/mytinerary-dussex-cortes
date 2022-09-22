@@ -13,9 +13,15 @@ import SignIn from "./pages/SignIn";
 import MyTinerares from "./pages/MyTinerares";
 import NewItinerary from "./pages/NewItinerary";
 import Profile from "./pages/Profile";
+import {useEffect, useState} from 'react'
 
 function App() {
-  let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : ""
+ let [user , setUser] = useState("")
+
+  useEffect(() => {
+    setUser(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : "")
+console.log(user)
+}, [localStorage])
 
   return (
     <BrowserRouter>
@@ -27,8 +33,8 @@ function App() {
           <Route path="/newitinerary" element={user == "" ? <UnderConstruction /> : <NewItinerary />}/>
           <Route path="/newcity" element={user == "admin" ? <NewCity /> : <UnderConstruction />} />
           <Route path="/editcity" element={user == "admin" ? <EditCity /> : <UnderConstruction/>} />
-          <Route path="/auth/signup" element={<SignUp />} />
-          <Route path="/auth/signin" element={<SignIn />} />
+          <Route path="/auth/signup" element={user == "user" ? <UnderConstruction /> :<SignUp />} />
+          <Route path="/auth/signin" element={user == "user" ? <UnderConstruction /> : <SignIn />} />
           <Route path="/cities" element={<Cities />} />
           <Route path="/*" element={<UnderConstruction />} />
           <Route path="/cities/:id" element={<City />} />

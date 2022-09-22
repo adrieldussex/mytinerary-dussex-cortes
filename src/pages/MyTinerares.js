@@ -6,7 +6,6 @@ import "../styles/MyTinerary.css";
 import { Link as LinkRouter } from "react-router-dom";
 
 export default function MyTinerares() {
-  // const [id, setId] = useState("63236bf76a4d335a234bab98");
 
   let id = ""
 
