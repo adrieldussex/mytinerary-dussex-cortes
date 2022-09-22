@@ -34,7 +34,6 @@ export default function Profile() {
   }, [myUser]);
 
   function editUser() {
-    console.log("first");
     setEdit(true);
   }
   function cancelEdit() {
