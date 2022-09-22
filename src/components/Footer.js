@@ -5,8 +5,6 @@ export default function Footer() {
   const pages = [
     {name: 'Home', to: '/'},
     {name: 'Cities', to: '/cities'},
-    {name: 'NewCity', to: '/newcity'},
-    {name: 'EditCity', to: '/editcity'},
   ]
 
   const year = new Date();
