@@ -44,7 +44,14 @@ const userAPI = createApi({
         method: 'GET',
         headers: {Authorization: 'Bearer ' + token}
       }),
-    })
+    }),
+    editCity: builder.mutation({
+      query: ({ dataUser, id }) => ({
+        url: `/auth/${id}`,
+        method: "PATCH",
+        body: dataUser,
+      }),
+    }),
   })
 });
 
@@ -55,5 +62,6 @@ export const {
   useSignOutMutation,
   useSignUpMutation,
   useGetOneUserMutation,
-  useSignInTokenMutation
+  useSignInTokenMutation,
+  useEditCityMutation
 } = userAPI;
