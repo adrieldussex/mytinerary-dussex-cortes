@@ -62,15 +62,16 @@ export default function Header() {
             </LinkRouter>
           </div>
         )}
-        <img
-          className="Header-avatar"
-          src={
-            user !== "" ? `${user.photo}` : "https://i.imgur.com/CNe5NKD.png"
-          }
-          alt="user-avatar"
-          ref={menuIcon}
-          onClick={handleToggleMenu}
-        />
+        <div className="Header-userButton" ref={menuIcon} onClick={handleToggleMenu}>
+          <img
+            className="Header-avatar"
+            src={
+              user !== "" ? `${user.photo}` : "https://i.imgur.com/CNe5NKD.png"
+            }
+            alt="user-avatar"
+          />
+          <p className="Header-userName">{user.name}</p>
+        </div>
       </div>
     </div>
   ) : (
