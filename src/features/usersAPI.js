@@ -29,10 +29,10 @@ const userAPI = createApi({
       }),
     }),
     signOut: builder.mutation({
-      query: (dataCity) => ({
+      query: (id) => ({
         url: `/auth/signout`,
         method: "POST",
-        body: dataCity,
+        body: id,
       }),
     }),
     signInToken: builder.mutation({
