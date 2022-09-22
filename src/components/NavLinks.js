@@ -10,7 +10,8 @@ export default function NavLinks() {
       {name: 'Home', to: '/'},
       {name: 'Cities', to: '/cities'},
       {name: 'NewCity', to: '/newcity'},
-      {name: 'EditCity', to: '/editcity'}
+      {name: 'EditCity', to: '/editcity'},
+      {name: 'New admin', to: 'auth/signup'}
     ]
   }else{
     pages = [
