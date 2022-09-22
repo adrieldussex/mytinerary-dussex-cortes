@@ -3,11 +3,15 @@ import MobileNav from "./MobileNav";
 import Nav from "./Nav";
 import { Link as LinkRouter } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
+import { useSignOutMutation } from "../features/usersAPI";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const menuIcon = useRef(null);
-
+  let user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : "";
+  let [logOutRedux] = useSignOutMutation();
   const handleCloseMenu = (event) => {
     const isClickInside = menuIcon.current.contains(event.target);
 
@@ -28,7 +32,51 @@ export default function Header() {
     };
   }, []);
 
-  return (
+  function logOut() {
+    console.log("first");
+    localStorage.removeItem("user");
+    console.log(user);
+    let id = { _id: user.id };
+    logOutRedux(id);
+  }
+
+  return user !== "" ? (
+    <div className="Header-container">
+      <LinkRouter to="/">
+        <img
+          className="Header-logo"
+          src="/img/Logo-nav.png"
+          alt="logo-header"
+        ></img>
+      </LinkRouter>
+      <div className="Header-right">
+        <MobileNav />
+        <Nav />
+        {open && (
+          <div className="Header-user">
+            <LinkRouter className="Header-option" to="mytineraries">
+              MyTinerary
+            </LinkRouter>
+            <LinkRouter className="Header-option" to="myprofile">
+              Profile
+            </LinkRouter>
+            <LinkRouter className="Header-option" to="/" onClick={logOut}>
+              Sign Out
+            </LinkRouter>
+          </div>
+        )}
+        <img
+          className="Header-avatar"
+          src={
+            user !== "" ? `${user.photo}` : "https://i.imgur.com/CNe5NKD.png"
+          }
+          alt="user-avatar"
+          ref={menuIcon}
+          onClick={handleToggleMenu}
+        />
+      </div>
+    </div>
+  ) : (
     <div className="Header-container">
       <LinkRouter to="/">
         <img
@@ -52,7 +100,9 @@ export default function Header() {
         )}
         <img
           className="Header-avatar"
-          src="https://i.imgur.com/CNe5NKD.png"
+          src={
+            user !== "" ? `${user.photo}` : "https://i.imgur.com/CNe5NKD.png"
+          }
           alt="user-avatar"
           ref={menuIcon}
           onClick={handleToggleMenu}

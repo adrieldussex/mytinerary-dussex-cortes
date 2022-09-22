@@ -8,9 +8,12 @@ const userAPI = createApi({
     baseUrl: apiurl,
   }),
   endpoints: (builder) => ({
+
+
+
     getOneUser: builder.mutation({
-      query: (userID) => ({
-        url: `/auth/?user=${userID}`,
+      query: (id) => ({
+        url: `/auth/${id}`,
         method: "GET",
       }),
     }),
@@ -29,10 +32,10 @@ const userAPI = createApi({
       }),
     }),
     signOut: builder.mutation({
-      query: (dataCity) => ({
+      query: (id) => ({
         url: `/auth/signout`,
         method: "POST",
-        body: dataCity,
+        body: id,
       }),
     }),
     signInToken: builder.mutation({

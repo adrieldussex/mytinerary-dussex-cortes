@@ -12,16 +12,10 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import MyTinerares from "./pages/MyTinerares";
 import NewItinerary from "./pages/NewItinerary";
+import Profile from "./pages/Profile";
 
 function App() {
-  let user = "";
-
-  if (localStorage.length > 0) {
-    user = JSON.parse(localStorage.getItem("user")).role;
-    console.log(user);
-  } else {
-    console.log(user);
-  }
+  let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : ""
 
   return (
     <BrowserRouter>
@@ -38,6 +32,7 @@ function App() {
           <Route path="/cities" element={<Cities />} />
           <Route path="/*" element={<UnderConstruction />} />
           <Route path="/cities/:id" element={<City />} />
+          <Route path="/myprofile" element={user == "" ? <UnderConstruction /> : <Profile />} />
         </Routes>
       </WebsiteLayout>
     </BrowserRouter>
