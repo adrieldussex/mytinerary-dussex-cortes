@@ -99,65 +99,38 @@ export default function Profile() {
   }
 
   return edit ? (
-    <div className="card">
-      <div className="card-img">
-        <img
-          className="Itinerary-photo"
-          src={user?.photo}
-          alt={user?.name}
-        ></img>
-      </div>
-      <div className="card-info">
-        <div className="item-card-info">
-          <form onSubmit={editUserButton}>
-            {form.map((e) => (
-              <div className="item-card-info" key={e.Name}>
-                <p className="text-title">{e.Name}:</p>
-
-                <input
-                  className="Input-input"
+    <div className="Profile-container">
+      <h2 className="Profile-titlePage">EDIT PROFILE</h2>
+      <div className="Profile-card">
+        <img src={user?.photo} alt={user?.name}></img>
+        <form onSubmit={editUserButton}>
+              {form.map((e) => (
+                <div className="EditProfile-form" key={e.Name}>
+                  <label className="EditProfile-labels" for={e.Name}>{e.Name}</label>
+                  <input
+                  className="EditProfile-inputs"
                   id={e.Name}
                   placeholder={e.Placeholder}
-                  ref={e.value}
-                ></input>
-              </div>
-            ))}
-        <Alert label={"Edit"} message={msg}/>
-        <button onClick={cancelEdit}> Cancel </button>
-          </form>
+                  ref={e.value}>
+                  </input>
+                </div>
+              ))}
+        <div className="EditProfile-buttons">
+          <Alert label={"Send"} message={msg}/>
+          <button className="Profile-buttonEdit" onClick={cancelEdit}> Cancel </button>
         </div>
+        </form>
       </div>
     </div>
   ) : (
-    <div className="card">
-      <div className="card-img">
-        <img
-          className="Itinerary-photo"
-          src={user?.photo}
-          alt={user?.name}
-        ></img>
-      </div>
-      <div className="card-info">
-        <div className="item-card-info">
-          <p className="text-title">Name: </p>
-          <p className="text-body">{user?.name}</p>
-        </div>
-        <div className="item-card-info">
-          <p className="text-title">Last name: </p>
-          <p className="text-body">{user?.lastName}</p>
-        </div>
-        <div className="item-card-info">
-          <p className="text-title">country</p>
-          <p className="text-body">{user?.country}</p>
-        </div>
-        <div className="item-card-info">
-          <p className="text-title">mail </p>
-          <p className="text-body">{user?.mail}</p>
-        </div>
-        <div>
-          <button onClick={editUser}> Edit </button>
-          <button> Back </button>
-        </div>
+    <div className="Profile-container">
+      <h2 className="Profile-titlePage">PROFILE</h2>
+      <div className="Profile-card">
+        <img src={user?.photo} alt={user?.name}></img>
+        <h3 className="Profile-userName">{user?.name} {""} {user?.lastName}</h3>
+        <p className="Profile-userCountry">{user?.country}</p>
+        <p className="Profile-userEmail">{user?.mail}</p>
+        <button className="Profile-buttonEdit" onClick={editUser}>Edit Profile</button>
       </div>
     </div>
   );
