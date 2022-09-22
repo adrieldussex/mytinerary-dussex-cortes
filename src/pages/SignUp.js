@@ -9,16 +9,12 @@ import Alert from '../components/Alert/Alert'
 
 export default function SignUp() {
   let [SignUpRedux, { data: userRedux, error }] = useSignUpMutation()
-  let msg = ""
+  let msg = "" 
+  msg = userRedux?.success ? userRedux?.message : msg = error?.data.message
 
 
-  if (userRedux?.success) {
-    msg = userRedux?.message
-  } else {
-    msg = error?.data.message
-  }
-
-
+  let role = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : ""
+  console.log(role)
 
   const nameRef = useRef();
   const lastNameRef = useRef();
@@ -76,7 +72,7 @@ export default function SignUp() {
       country: countryRef.current.value,
       password: passwordRef.current.value,
       photo: photoRef.current.value,
-      role: "user",
+      role: role == "admin" ? "admin" : "user" ,
       from: "form"
     }
 
