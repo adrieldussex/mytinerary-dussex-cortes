@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Profile.css";
-import { useGetOneUserMutation } from "../features/usersAPI";
+import {
+  useGetOneUserMutation,
+  useEditCityMutation,
+} from "../features/usersAPI";
+import Alert from "../components/Alert/Alert";
 
 export default function Profile() {
   let [edit, setEdit] = useState(false);
@@ -9,6 +13,10 @@ export default function Profile() {
     ? JSON.parse(localStorage.getItem("user")).id
     : "";
   let [getOneUser, { data: myUser }] = useGetOneUserMutation();
+  let [editUserRedux, { data: userResponse, error }] = useEditCityMutation();
+
+  let msg = userResponse?.message ? userResponse.message : "";
+
   let theUser = myUser?.response;
   let [user, setUser] = useState();
   let nameRef = useRef();
@@ -26,7 +34,6 @@ export default function Profile() {
   }, [myUser]);
 
   function editUser() {
-    console.log("first");
     setEdit(true);
   }
   function cancelEdit() {
@@ -39,37 +46,57 @@ export default function Profile() {
       Label: "Name",
       Placeholder: `${user?.name}`,
       type: "text",
-      value: nameRef
+      value: nameRef,
     },
     {
       Name: "Last Name",
       Label: "Last Name",
       Placeholder: `${user?.lastName}`,
       type: "text",
-      value: lastNameRef
+      value: lastNameRef,
     },
     {
       Name: "Country",
       Label: "Country",
       Placeholder: `${user?.country}`,
       type: "text",
-      value: countryRef
+      value: countryRef,
     },
     {
       Name: "mail",
       Label: "mail",
       Placeholder: `${user?.mail}`,
       type: "text",
-      value: mailRef
+      value: mailRef,
     },
     {
       Name: "Photo",
       Label: "Photo",
       Placeholder: "Photo",
       type: "text",
-      value: photoRef
+      value: photoRef,
     },
   ];
+
+  function editUserButton(e) {
+    e.preventDefault();
+    let dataUser = {
+      name: nameRef.current.value !== "" ? nameRef.current.value : user.name,
+      lastName:
+        lastNameRef.current.value !== ""
+          ? lastNameRef.current.value
+          : user.lastName,
+      mail: mailRef.current.value !== "" ? mailRef.current.value : user.mail,
+      country:
+        countryRef.current.value !== ""
+          ? countryRef.current.value
+          : user.country,
+      photo:
+        photoRef.current.value !== "" ? photoRef.current.value : user.photo,
+    };
+    console.log(dataUser);
+    editUserRedux({ dataUser, id });
+  }
 
   return edit ? (
     <div className="card">
@@ -80,25 +107,27 @@ export default function Profile() {
           alt={user?.name}
         ></img>
       </div>
-      <div className="card-info">          
+      <div className="card-info">
         <div className="item-card-info">
-          <form >
-          {form.map((e) =>(
-             <div className="item-card-info" key={e.Name}>
+          <form onSubmit={editUserButton}>
+            {form.map((e) => (
+              <div className="item-card-info" key={e.Name}>
                 <p className="text-title">{e.Name}:</p>
-               
-      <input className="Input-input" id={e.Name} placeholder= {e.Placeholder}></input>         
-            </div>
-          ))}
+
+                <input
+                  className="Input-input"
+                  id={e.Name}
+                  placeholder={e.Placeholder}
+                  ref={e.value}
+                ></input>
+              </div>
+            ))}
+        <Alert label={"Edit"} message={msg}/>
+        <button onClick={cancelEdit}> Cancel </button>
           </form>
         </div>
-        
-        
-          <button> Accept </button>
-          <button onClick={cancelEdit}> Back </button>
-        </div>
       </div>
-    
+    </div>
   ) : (
     <div className="card">
       <div className="card-img">
