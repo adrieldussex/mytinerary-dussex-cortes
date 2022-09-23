@@ -70,3 +70,7 @@
         min-width: 70%;
     }
 }
+.hidden-no-user{
+    opacity: 0;
+    z-index: -1;
+}
