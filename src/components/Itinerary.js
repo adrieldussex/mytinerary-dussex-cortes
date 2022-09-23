@@ -4,10 +4,8 @@ import Activities from "./Activities";
 import Comments from "./Comments";
 import Alert from "../components/Alert/Alert";
 import { useCreateActivityMutation } from "../features/activitiesAPI";
-import {
-  useDelItineraryMutation,
-  useEditItineraryMutation,
-} from "../features/itineraryAPI";
+import {useDelItineraryMutation,useEditItineraryMutation,} from "../features/itineraryAPI";
+import Like from "../components/Itinerary/Like"
 
 export default function Itinerary({ item }) {
   let user = localStorage.getItem("user")
@@ -125,6 +123,7 @@ res.data  ? setMsg(res.data.message) : setMsg(res.error.data.message)
               {item.tags.map((tag) => "#" + tag + " ")}
             </p>
           </div>
+            <Like data={item}/>
         </div>
         {user.id === item.user._id ? (
           <>
@@ -164,7 +163,7 @@ res.data  ? setMsg(res.data.message) : setMsg(res.error.data.message)
         ) : (
           ""
         )}
-
+        
         <Activities itineraryId={item._id} />
         <Comments itineraryId={item._id} />
         <hr className="horizontal-line"></hr>
