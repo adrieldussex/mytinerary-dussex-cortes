@@ -19,9 +19,9 @@ function App() {
  let [user , setUser] = useState("")
 
   useEffect(() => {
-    setUser(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).role : "")
-console.log(user)
-}, [localStorage])
+    localStorage.getItem("user") ? setUser(JSON.parse(localStorage.getItem("user")).role) : setUser("")
+  }, [localStorage.length])
+  console.log(user)
 
   return (
     <BrowserRouter>
