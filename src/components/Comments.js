@@ -10,8 +10,6 @@ export default function Comments(props) {
         getItinerariesComments(props.itineraryId);
     }, [props.itineraryId]);
 
-    console.log(comments)
-
     const [open, setOpen] = useState(false)
     const handleOpen = () => {
         open ?
