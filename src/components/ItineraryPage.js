@@ -1,12 +1,13 @@
 import React from "react"
+import { useState } from "react"
 import '../styles/Itinerary.css'
 import Activities from './Activities'
 import Comments from './Comments'
 import EditItinerary from './Itinerary/EditItinerary'
 
+
 export default function Itinerary(item) {
 let user = JSON.parse(localStorage.getItem("user"))
-let userPhoto = user.photo
 
     return (       
         <div className="Itinerary-container" key={item._id}>
@@ -24,7 +25,7 @@ let userPhoto = user.photo
             <p className="text-tags">{item.tags.map(tag => "#" + tag + " ")}</p>
           </div>
         </div>
-        <EditItinerary/>
+        <EditItinerary data={item}/>
         <Activities itineraryId={item._id}/>
         <Comments itineraryId={item._id}/>
         <hr className="horizontal-line"></hr>
