@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     localStorage.getItem("user") ? setUser(JSON.parse(localStorage.getItem("user")).role) : setUser("")
-  }, [localStorage.length])
+  }, [JSON.parse(localStorage.getItem("user"))])
   console.log(user)
 
   return (
@@ -33,8 +33,8 @@ function App() {
           <Route path="/newitinerary" element={user == "" ? <UnderConstruction /> : <NewItinerary />}/>
           <Route path="/newcity" element={user == "admin" ? <NewCity /> : <UnderConstruction />} />
           <Route path="/editcity" element={user == "admin" ? <EditCity /> : <UnderConstruction/>} />
-          <Route path="/auth/signup" element={user == "user" ? <UnderConstruction /> :<SignUp />} />
-          <Route path="/auth/signin" element={user == "user" ? <UnderConstruction /> : <SignIn />} />
+          <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/auth/signin" element={<SignIn />} />
           <Route path="/cities" element={<Cities />} />
           <Route path="/*" element={<UnderConstruction />} />
           <Route path="/cities/:id" element={<City />} />
