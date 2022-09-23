@@ -55,10 +55,6 @@
     margin-left: 2rem;
 }
 
-.Header-user {
-    display: flex;
-}
-
 .Header-userButton {
     display: flex;
     align-items: center;
