@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react"
 import '../styles/Itinerary.css'
 import Activities from './Activities'
-import Comments from './Comments'
+import Comments from "./DisplayComments";
 import EditItinerary from './Itinerary/EditItinerary'
 
 
