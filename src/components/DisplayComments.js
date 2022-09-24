@@ -11,6 +11,10 @@ export default function Comments(props) {
   let [getItinerariesComments, { data: comment }] =
     useGetItinerariesCommentsMutation();
   let [addNewCommentRedux, { data: resComment }] = useCreateCommentMutation();
+  let [{data : resEditComment}] = useEditCommentMutation()
+  let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : ""
+
+
   let resHook = resComment?.response;
   let arrayComments = comment?.response;
   let [openEdit, setOpenEdit] = useState(true);
@@ -77,13 +81,17 @@ export default function Comments(props) {
         <>
           <div className="Comments-cards">
             {comments?.map((e) => (
-              <CommentsCard data={e} key={e._id} />
+              <CommentsCard edit={addNewCommentRedux} data={e} key={e._id} />
             ))}
           </div>
+          {user.role !== "" ?
+          (<>
           <button className="comments-button" onClick={openComment}>
             ➕
-          </button>
-          {openNew ? (
+          </button> 
+          </>)
+          : null}
+          {openNew  ? (
             <form onSubmit={newComment}>
               <input
                 className="Input-input"
