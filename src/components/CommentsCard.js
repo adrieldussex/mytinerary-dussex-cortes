@@ -7,15 +7,12 @@ export default function CommentsCard(props) {
   let [editCommentRedux , {data : commentEdited}] = useEditCommentMutation();
   let [delCommentRedux] = useDelCommentMutation()
   let array = commentEdited?.response.comment
- 
 
   let [e , setE] = useState(props.data) 
+let user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : ""
 
-
-
-
-
-
+let userID = user.id
+let commentID = e.user._id
 
   let commentRef = useRef();
   let [openEdit, setOpenEdit] = useState(true);
@@ -72,10 +69,14 @@ export default function CommentsCard(props) {
               <button className="Profile-buttonEdit">✔</button>
             </form>
           )}
+          {(userID == commentID) || user.role == "admin" ? 
+          <>
           <div className="buttons-comments-ed">
             <div onClick={openEditButton}> 📝 </div>
             <div id={e._id} onClick={delButton}> ❌ </div>
           </div>
+          </>
+           : null}
         </div>
       </div>
     </div>
