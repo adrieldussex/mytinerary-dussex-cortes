@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "../styles/Itinerary.css";
 import Activities from "./Activities";
-import Comments from "./Comments";
+import Comments from "./DisplayComments";
 import Alert from "../components/Alert/Alert";
 import { useCreateActivityMutation } from "../features/activitiesAPI";
 import {useDelItineraryMutation,useEditItineraryMutation,} from "../features/itineraryAPI";
@@ -13,7 +13,6 @@ export default function Itinerary({ item }) {
     : "";
   let [open, setOpen] = useState(false);
   let [edit, setedit] = useState(false);
-  let [idItinerary, setIdItinerary] = useState();
   let nameRef = useRef();
   let photoRef = useRef();
   let nameIRef = useRef();
